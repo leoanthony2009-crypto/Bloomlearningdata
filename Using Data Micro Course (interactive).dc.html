@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;background:#F2F4F8;color:#1F3A5F;font-family:'IBM Plex Sans',system-ui,sans-serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+h1,h2,h3,p{margin:0}
+a{color:#1F3A5F;text-underline-offset:3px}a:hover{color:#B08D2E}
+button,input,textarea{font:inherit}
+button{cursor:pointer}
+button:disabled{cursor:default}
+:focus{outline:none}:focus-visible{outline:2px solid #B08D2E;outline-offset:2px}
+textarea,input{max-width:100%;min-width:0}
+img{max-width:100%}
+@media print{
+  @page{size:A4 landscape;margin:12mm}
+  html,body{background:#fff!important;height:auto!important;min-height:0!important;overflow:visible!important}
+  [data-noprint]{display:none!important}
+  header,nav{display:none!important}
+  *{position:static!important;box-shadow:none!important;overflow:visible!important;max-height:none!important;min-height:0!important}
+  body [data-printroot]{display:block!important}
+  body.printing-cert :not([data-printroot]):not([data-printroot] *):not(:has([data-printroot])){display:none!important}
+  [data-printroot]{page-break-inside:avoid;break-inside:avoid;border:1px solid #D9E1EC!important;border-radius:0!important;max-width:none!important}
+  [data-printroot] [data-frame]{display:none!important}
+}
+</style>
+</helmet>
+<div style="min-height:100vh;display:flex;flex-direction:column">
+
+<!-- LANDING -->
+<sc-if value="{{ isLanding }}" hint-placeholder-val="{{ true }}">
+<div style="background:#1F3A5F;color:#fff;padding:clamp(32px,6vw,56px) clamp(16px,3vw,24px) clamp(36px,6vw,64px)">
+  <div style="max-width:1040px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:36px 48px;align-items:center">
+  <div style="display:flex;flex-direction:column;gap:22px;min-width:0">
+    <div style="font-size:14px;font-variant:small-caps;letter-spacing:.16em;color:#B08D2E;font-weight:600">Bloom Learning Lab 02</div>
+    <h1 style="font-size:clamp(34px,4.2vw,54px);line-height:1.08;font-weight:700;text-wrap:pretty">Using Data to Direct School Improvement</h1>
+    <p style="font-size:19px;color:#D9E1EC;text-wrap:pretty">30 minutes core learning for principals and school leaders · applied practice with your own data</p>
+    <div style="display:flex;flex-wrap:wrap;gap:8px">
+      <span style="font-size:13px;padding:5px 12px;border-radius:999px;border:1px solid rgba(217,225,236,.4);color:#D9E1EC;white-space:nowrap;flex-shrink:0">Worked example: School A</span>
+      <span style="font-size:13px;padding:5px 12px;border-radius:999px;border:1px solid rgba(217,225,236,.4);color:#D9E1EC;white-space:nowrap;flex-shrink:0">Build your own scorecard line</span>
+      <span style="font-size:13px;padding:5px 12px;border-radius:999px;border:1px solid rgba(217,225,236,.4);color:#D9E1EC;white-space:nowrap;flex-shrink:0">Knowledge check</span>
+      <span style="font-size:13px;padding:4px 12px 4px 6px;border-radius:999px;border:1px solid rgba(217,225,236,.4);color:#D9E1EC;white-space:nowrap;flex-shrink:0;display:inline-flex;align-items:center;gap:7px"><img src="assets/badge-silver.png" alt="" width="22" height="22" style="display:block;width:22px;height:22px">Certificate + digital badge</span>
+    </div>
+  </div>
+  <div style="position:relative;min-width:0">
+    <div style="position:absolute;inset:14px -14px -14px 14px;border:1px solid rgba(176,141,46,.55);border-radius:10px;pointer-events:none"></div>
+    <div style="position:relative;border-radius:10px;overflow:hidden;box-shadow:0 18px 44px rgba(0,0,0,.35);background:#fff">
+      <img src="assets/hero-data-room.png" alt="A school leadership data room: a display of student performance charts, planning whiteboards, and students walking outside" style="display:block;width:100%;height:auto;aspect-ratio:11/7;object-fit:cover">
+      <div style="display:grid;grid-template-columns:1fr 16px 1fr 16px 1fr 16px 1fr;align-items:stretch;background:#16304f;border-top:2px solid #B08D2E;padding:10px 10px">
+        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;min-height:56px;padding:8px 6px;border-radius:8px;background:#2F6FB3;color:#fff;box-shadow:0 2px 0 rgba(0,0,0,.28);min-width:0;text-align:center"><span style="font-size:10px;letter-spacing:.14em;font-weight:800;opacity:.85">STEP 1</span><span style="font-size:clamp(11px,1vw,13px);font-weight:800;line-height:1.15;text-wrap:balance">Assessment Survey</span></div>
+        <span style="display:flex;align-items:center;justify-content:center;color:#B08D2E" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></span>
+        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;min-height:56px;padding:8px 6px;border-radius:8px;background:#2E8B57;color:#fff;box-shadow:0 2px 0 rgba(0,0,0,.28);min-width:0;text-align:center"><span style="font-size:10px;letter-spacing:.14em;font-weight:800;opacity:.85">STEP 2</span><span style="font-size:clamp(11px,1vw,13px);font-weight:800;line-height:1.15;text-wrap:balance">Action Plan</span></div>
+        <span style="display:flex;align-items:center;justify-content:center;color:#B08D2E" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></span>
+        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;min-height:56px;padding:8px 6px;border-radius:8px;background:#B08D2E;color:#1F3A5F;box-shadow:0 2px 0 rgba(0,0,0,.28);min-width:0;text-align:center"><span style="font-size:10px;letter-spacing:.14em;font-weight:800;opacity:.8">STEP 3</span><span style="font-size:clamp(11px,1vw,13px);font-weight:800;line-height:1.15;text-wrap:balance">Balanced Scorecard</span></div>
+        <span style="display:flex;align-items:center;justify-content:center;color:#B08D2E" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></span>
+        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;min-height:56px;padding:8px 6px;border-radius:8px;background:#D9E1EC;color:#1F3A5F;box-shadow:0 2px 0 rgba(0,0,0,.28);min-width:0;text-align:center"><span style="font-size:10px;letter-spacing:.14em;font-weight:800;opacity:.75">STEP 4</span><span style="font-size:clamp(11px,1vw,13px);font-weight:800;line-height:1.15;text-wrap:balance">Termly Review</span></div>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+<div style="max-width:1040px;width:100%;margin:0 auto;padding:clamp(24px,4vw,40px) clamp(14px,3vw,24px) 72px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:28px;align-items:start">
+  <div style="display:flex;flex-direction:column;gap:18px">
+    <div style="background:#D9E1EC;border-radius:8px;padding:18px 22px;font-size:16px;text-wrap:pretty">In 30 minutes: turn AFFIRM evidence into one focused priority, record a warranted judgement, create a testable hypothesis, and use the scorecard to track whether practice is improving.</div>
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:10px">
+      <div style="font-size:12px;color:#B08D2E;font-weight:600;letter-spacing:.08em;text-transform:uppercase">By the end, leaders can</div>
+      <ol style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px;font-size:15px">
+        <li>Read a survey report for strengths and priorities</li>
+        <li>Translate one priority into a complete scorecard line</li>
+        <li>Use a balanced scorecard to track improvement over time</li>
+        <li>Ask stronger termly review questions</li>
+        <li>Interpret evidence through disciplined sense-making — never score-chasing</li>
+      </ol>
+    </div>
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:10px">
+      <div style="font-size:12px;color:#B08D2E;font-weight:600;letter-spacing:.08em;text-transform:uppercase">30-minute route</div>
+      <div style="display:grid;grid-template-columns:64px 1fr;row-gap:6px;column-gap:14px;font-size:15px">
+        <span style="font-weight:600">0–2</span><span>Course purpose and outcomes</span>
+        <span style="font-weight:600">2–8</span><span>Reading the survey, strengths first</span>
+        <span style="font-weight:600">8–12</span><span>Selecting one priority</span>
+        <span style="font-weight:600">12–22</span><span>Action report → scorecard line</span>
+        <span style="font-weight:600">22–28</span><span>Hypothesis · evidence · warrants</span>
+        <span style="font-weight:600">28–30</span><span>Review · commitment · knowledge check</span>
+      </div>
+    </div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:18px">
+    <sc-if value="{{ hasName }}" hint-placeholder-val="{{ false }}">
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:12px">
+        <div style="font-size:15px">Welcome back, <strong>{{ name }}</strong>. You have completed {{ completedCount }} of {{ lessonCount }} lessons.</div>
+        <div style="height:6px;border-radius:999px;background:#D9E1EC;overflow:hidden"><div style="{{ progressBarStyle }}"></div></div>
+        <div style="display:flex;flex-wrap:wrap;gap:10px">
+          <button onClick="{{ resume }}" style="min-height:44px;padding:10px 20px;border-radius:8px;border:1px solid #1F3A5F;background:#1F3A5F;color:#fff;font-weight:600;font-size:15px" style-hover="background:#16304f">{{ resumeLabel }}</button>
+          <button onClick="{{ resetAll }}" style="min-height:44px;padding:10px 16px;border-radius:8px;border:1px solid #D9E1EC;background:transparent;color:#4A5B75;font-size:14px" style-hover="background:#fff">Start over &amp; clear my notes</button>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ noName }}" hint-placeholder-val="{{ true }}">
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:12px">
+        <label for="learner-name" style="font-weight:600;font-size:15px">Your name (for your completion certificate)</label>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <input id="learner-name" type="text" autocomplete="name" placeholder="e.g. Principal A. Mohammed" value="{{ nameDraft }}" onChange="{{ onNameDraft }}" onKeyDown="{{ onNameKey }}" style="flex:1;min-width:200px;min-height:44px;padding:10px 14px;border-radius:8px;border:1px solid #B8C3D4;background:#fff;font-size:16px;color:#1F3A5F">
+          <button onClick="{{ startCourse }}" disabled="{{ startDisabled }}" style="min-height:44px;padding:10px 22px;border-radius:8px;border:1px solid #1F3A5F;background:#1F3A5F;color:#fff;font-weight:600;font-size:15px" style-hover="background:#16304f">Start the course</button>
+        </div>
+        <p style="font-size:13px;color:#4A5B75">Your name and notes stay on this device only. Nothing is sent anywhere.</p>
+      </div>
+    </sc-if>
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:12px">
+      <div style="font-size:12px;color:#B08D2E;font-weight:600;letter-spacing:.08em;text-transform:uppercase">School A · AFFIRM baseline (out of 4)</div>
+      <div style="display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) 48px;align-items:center;gap:8px 12px;font-size:14px">
+        <span>Assessment Quality</span><div style="height:10px;background:#D9E1EC;border-radius:5px"><div style="height:100%;width:90%;background:#1F3A5F;border-radius:5px"></div></div><span style="font-weight:600;text-align:right">3.60</span>
+        <span>Technical Practice</span><div style="height:10px;background:#D9E1EC;border-radius:5px"><div style="height:100%;width:81.25%;background:#1F3A5F;border-radius:5px"></div></div><span style="font-weight:600;text-align:right">3.25</span>
+        <span>Feedback</span><div style="height:10px;background:#D9E1EC;border-radius:5px"><div style="height:100%;width:75%;background:#1F3A5F;border-radius:5px"></div></div><span style="font-weight:600;text-align:right">3.00</span>
+        <span>Reward &amp; Recognition</span><div style="height:10px;background:#D9E1EC;border-radius:5px"><div style="height:100%;width:75%;background:#1F3A5F;border-radius:5px"></div></div><span style="font-weight:600;text-align:right">3.00</span>
+        <span>Intervention</span><div style="height:10px;background:#D9E1EC;border-radius:5px"><div style="height:100%;width:70.75%;background:#B08D2E;border-radius:5px"></div></div><span style="font-weight:600;text-align:right">2.83</span>
+        <span>Management &amp; Monitoring</span><div style="height:10px;background:#D9E1EC;border-radius:5px"><div style="height:100%;width:66.75%;background:#B08D2E;border-radius:5px"></div></div><span style="font-weight:600;text-align:right">2.67</span>
+      </div>
+      <p style="font-size:13px;color:#4A5B75">The worked example is anonymised as School A. Code BPLF-MC-DATA-01 v1.3.</p>
+    </div>
+  </div>
+</div>
+</sc-if>
+
+<!-- COURSE SHELL -->
+<sc-if value="{{ inCourse }}" hint-placeholder-val="{{ false }}">
+<header data-noprint="1" style="display:flex;align-items:center;gap:12px;padding:10px 16px;background:#fff;border-bottom:1px solid #D9E1EC;position:sticky;top:0;z-index:5;min-width:0">
+  <sc-if value="{{ narrow }}"><button aria-label="Toggle lesson menu" onClick="{{ toggleMenu }}" style="width:40px;height:40px;border-radius:8px;border:1px solid #D9E1EC;background:transparent;color:#1F3A5F;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="20" height="20" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"/></svg></button></sc-if>
+  <button onClick="{{ goLanding }}" style="border:0;background:transparent;padding:0;text-align:left;display:flex;flex-direction:column;gap:2px;color:#1F3A5F;min-width:0;flex:1;cursor:pointer">
+    <span style="font-size:12px;font-variant:small-caps;letter-spacing:.14em;color:#B08D2E;font-weight:600">Bloom Learning Lab 02</span>
+    <span style="font-weight:600;font-size:15px;line-height:1.2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:block;max-width:100%">Using Data to Direct School Improvement</span>
+  </button>
+  <div style="display:flex;align-items:center;gap:8px;flex-shrink:0">
+    <div style="width:clamp(48px,12vw,120px);height:6px;border-radius:999px;background:#D9E1EC;overflow:hidden" role="progressbar" aria-label="Course progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{{ progressPct }}"><div style="{{ progressBarStyle }}"></div></div>
+    <span style="font-size:13px;color:#4A5B75;white-space:nowrap">{{ progressPct }}%</span>
+  </div>
+</header>
+
+<div style="flex:1;display:flex;position:relative;max-width:1280px;width:100%;margin:0 auto;min-width:0">
+  <sc-if value="{{ showSidebar }}" hint-placeholder-val="{{ true }}">
+  <nav data-noprint="1" aria-label="Course lessons" style="{{ sidebarStyle }}">
+    <sc-for list="{{ modules }}" as="mod" hint-placeholder-count="5">
+      <div style="display:flex;flex-direction:column;gap:2px">
+        <div style="display:flex;flex-direction:column;padding:8px 10px 4px"><span style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#B08D2E;font-weight:600">Module {{ mod.n }} · {{ mod.mins }}</span><span style="font-size:13px;color:#4A5B75">{{ mod.title }}</span></div>
+        <sc-for list="{{ mod.lessons }}" as="l" hint-placeholder-count="3">
+          <button onClick="{{ l.go }}" aria-current="{{ l.current }}" style="{{ l.style }}" style-hover="background:#F2F4F8">
+            <span style="{{ l.dotStyle }}"><sc-if value="{{ l.done }}"><svg width="12" height="12" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"/></svg></sc-if></span>
+            <span style="flex:1">{{ l.title }}</span>
+          </button>
+        </sc-for>
+      </div>
+    </sc-for>
+    <div style="height:1px;margin:6px 0;background:#D9E1EC"></div>
+    <button onClick="{{ goRate }}" style="{{ rateNavStyle }}" style-hover="background:#F2F4F8"><svg width="16" height="16" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M239.2 97.4a16.4 16.4 0 0 0-14.2-11l-56.4-4.3-21.6-52.8a16.4 16.4 0 0 0-30 0L95.4 82.1l-56.4 4.3a16.4 16.4 0 0 0-9.2 28.5l42.8 36.8-12.7 54.8a16.4 16.4 0 0 0 24.5 17.9L128 195.1l43.6 29.3a16.4 16.4 0 0 0 24.5-17.9l-12.7-54.8 42.8-36.8a16.4 16.4 0 0 0 5-17.5Z"/></svg><span>{{ rateNavLabel }}</span></button>
+  </nav>
+  </sc-if>
+  <sc-if value="{{ showScrim }}" hint-placeholder-val="{{ false }}"><div onClick="{{ toggleMenu }}" style="position:fixed;inset:0;background:rgba(31,58,95,.35);z-index:8"></div></sc-if>
+
+  <main id="main-content" style="flex:1;min-width:0;padding:clamp(18px,3vw,32px) clamp(14px,3vw,24px) 48px;display:flex;flex-direction:column;gap:26px">
+
+  <div style="display:flex;flex-direction:column;gap:10px;max-width:820px">
+    <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#B08D2E;font-weight:600"><span>{{ curKicker }}</span><span style="color:#4A5B75;letter-spacing:0;text-transform:none;font-weight:400">{{ curMeta }}</span></div>
+    <h1 style="font-size:clamp(26px,3.2vw,36px);line-height:1.15;text-wrap:pretty">{{ curTitle }}</h1>
+    <p style="font-size:17px;text-wrap:pretty">{{ curIntro }}</p>
+    <sc-if value="{{ hasObjective }}"><p style="font-size:14px;color:#4A5B75;display:flex;gap:8px;align-items:baseline"><span style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#B08D2E;font-weight:600;white-space:nowrap">You'll be able to</span><span>{{ curObjective }}</span></p></sc-if>
+  </div>
+  <sc-if value="{{ showRecap }}">
+    <div style="max-width:820px;background:#fff;border:1px solid #D9E1EC;border-left:3px solid #B08D2E;border-radius:8px;padding:14px 18px;display:flex;flex-direction:column;gap:4px">
+      <span style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#B08D2E;font-weight:600">Before you go on · Module {{ recapMod }} in one line</span>
+      <p style="font-size:14.5px;text-wrap:pretty">{{ recapText }}</p>
+    </div>
+  </sc-if>
+
+  <!-- 1 WELCOME -->
+  <sc-if value="{{ s_welcome }}">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:18px;max-width:1000px">
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:12px">
+        <div style="font-size:12px;color:#B08D2E;font-weight:600;letter-spacing:.08em;text-transform:uppercase">Common data problem</div>
+        <p style="font-size:15px;text-wrap:pretty">Schools often collect survey, assessment and attendance data — but the data does not always direct decisions, follow-up or accountability.</p>
+      </div>
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:12px">
+        <div style="font-size:12px;color:#B08D2E;font-weight:600;letter-spacing:.08em;text-transform:uppercase">Scorecard response</div>
+        <p style="font-size:15px;text-wrap:pretty">A balanced scorecard keeps a small number of improvement priorities visible, linked to evidence, owners, actions, review dates and movement over time.</p>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;max-width:1000px">
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:16px 18px;display:flex;flex-direction:column;gap:4px"><span style="font-weight:600;font-size:17px">Data</span><span style="font-size:14px;color:#4A5B75">What does the evidence say?</span></div>
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:16px 18px;display:flex;flex-direction:column;gap:4px"><span style="font-weight:600;font-size:17px">Decision</span><span style="font-size:14px;color:#4A5B75">What matters most now?</span></div>
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:16px 18px;display:flex;flex-direction:column;gap:4px"><span style="font-weight:600;font-size:17px">Action</span><span style="font-size:14px;color:#4A5B75">Who will do what by when?</span></div>
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:16px 18px;display:flex;flex-direction:column;gap:4px"><span style="font-weight:600;font-size:17px">Review</span><span style="font-size:14px;color:#4A5B75">What changed and what did we learn?</span></div>
+    </div>
+    <div style="max-width:820px;background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:10px">
+      <div style="font-weight:600;font-size:17px">Opening reflection</div>
+      <p style="font-size:14px;color:#4A5B75">Before we look at School A: what data does your school already collect that is not yet directing a decision?</p>
+      <textarea rows="3" value="{{ openingNote }}" onChange="{{ onOpeningNote }}" placeholder="One or two lines — you will see this again at the capstone." style="width:100%;padding:12px 14px;border-radius:8px;border:1px solid #B8C3D4;background:#fff;font-size:15px;resize:vertical;color:#1F3A5F"></textarea>
+    </div>
+  </sc-if>
+
+  <!-- 2 PATHWAY -->
+  <sc-if value="{{ s_pathway }}">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;max-width:1000px">
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:18px 20px;display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;color:#B08D2E;font-weight:600">1</span><span style="font-weight:600;font-size:17px">Assessment Survey</span><span style="font-size:14px;color:#4A5B75">baseline evidence · scores + response patterns</span></div>
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:18px 20px;display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;color:#B08D2E;font-weight:600">2</span><span style="font-weight:600;font-size:17px">Action Report</span><span style="font-size:14px;color:#4A5B75">objectives · activities + evidence</span></div>
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:18px 20px;display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;color:#B08D2E;font-weight:600">3</span><span style="font-weight:600;font-size:17px">Balanced Scorecard</span><span style="font-size:14px;color:#4A5B75">priorities · owners + status + warrants</span></div>
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:18px 20px;display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;color:#B08D2E;font-weight:600">4</span><span style="font-weight:600;font-size:17px">Termly Review</span><span style="font-size:14px;color:#4A5B75">movement · evidence + next decision</span></div>
+    </div>
+    <div style="max-width:820px;background:#D9E1EC;border-radius:8px;padding:18px 22px;font-size:16px">The survey diagnoses. The action plan specifies the response. The scorecard holds the improvement story over time.</div>
+    <div style="max-width:820px;background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:12px">
+      <div style="font-weight:600;font-size:17px">Check: put the pathway in order</div>
+      <p style="font-size:14px;color:#4A5B75">Tap the four stages in the order a school moves through them.</p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap"><sc-for list="{{ orderSlots }}" as="sl" hint-placeholder-count="4"><span style="{{ sl.style }}">{{ sl.label }}</span></sc-for></div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{ orderOpts }}" as="o" hint-placeholder-count="4"><button onClick="{{ o.pick }}" disabled="{{ o.used }}" style="{{ o.style }}">{{ o.label }}</button></sc-for></div>
+      <sc-if value="{{ orderMiss }}"><p role="alert" style="font-size:14px;color:#8a2f22">Not that one — the pathway starts again. First comes <strong>{{ orderExpected }}</strong>.</p></sc-if>
+      <sc-if value="{{ orderDone }}"><p style="font-size:14px;color:#2f5a37;font-weight:600">All four in order. At each stage, ask: what decision does this evidence help us make?</p></sc-if>
+    </div>
+  </sc-if>
+
+  <!-- 3 BASELINE -->
+  <sc-if value="{{ s_baseline }}">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:18px;max-width:1000px;align-items:start">
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:12px">
+        <div style="font-size:12px;color:#B08D2E;font-weight:600;letter-spacing:.08em;text-transform:uppercase">School A · AFFIRM baseline (out of 4)</div>
+        <div style="display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1.2fr) 48px;align-items:center;gap:10px 12px;font-size:15px">
+          <span>Assessment Quality</span><div style="height:14px;background:#D9E1EC;border-radius:7px"><div style="height:100%;width:90%;background:#1F3A5F;border-radius:7px"></div></div><span style="font-weight:600;text-align:right">3.60</span>
+          <span>Technical Practice</span><div style="height:14px;background:#D9E1EC;border-radius:7px"><div style="height:100%;width:81.25%;background:#1F3A5F;border-radius:7px"></div></div><span style="font-weight:600;text-align:right">3.25</span>
+          <span>Feedback</span><div style="height:14px;background:#D9E1EC;border-radius:7px"><div style="height:100%;width:75%;background:#1F3A5F;border-radius:7px"></div></div><span style="font-weight:600;text-align:right">3.00</span>
+          <span>Reward &amp; Recognition</span><div style="height:14px;background:#D9E1EC;border-radius:7px"><div style="height:100%;width:75%;background:#1F3A5F;border-radius:7px"></div></div><span style="font-weight:600;text-align:right">3.00</span>
+          <span>Intervention</span><div style="height:14px;background:#D9E1EC;border-radius:7px"><div style="height:100%;width:70.75%;background:#B08D2E;border-radius:7px"></div></div><span style="font-weight:600;text-align:right">2.83</span>
+          <span>Management &amp; Monitoring</span><div style="height:14px;background:#D9E1EC;border-radius:7px"><div style="height:100%;width:66.75%;background:#B08D2E;border-radius:7px"></div></div><span style="font-weight:600;text-align:right">2.67</span>
+        </div>
+        <p style="font-size:13px;color:#4A5B75;text-wrap:pretty">Note: the updated action report records Assessment Quality as 3.64; the scorecard uses the harmonised 3.60.</p>
+      </div>
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:12px">
+        <div style="font-size:12px;color:#B08D2E;font-weight:600;letter-spacing:.08em;text-transform:uppercase">Read it like a leader</div>
+        <p style="font-size:15px"><strong>Strengths first:</strong> Assessment Quality and Technical Practice.</p>
+        <p style="font-size:15px"><strong>Priorities next:</strong> Management &amp; Monitoring, Intervention.</p>
+        <p style="font-size:15px">Keep the conversation developmental, not punitive.</p>
+      </div>
+    </div>
+    <div style="max-width:820px;background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:12px">
+      <div style="font-weight:600;font-size:17px">Check: sort the six areas</div>
+      <p style="font-size:14px;color:#4A5B75">Tag each area as a strength to protect or a priority to develop. Two of each; the middle two are neither.</p>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <sc-for list="{{ sortItems }}" as="si" hint-placeholder-count="6">
+          <div style="{{ si.cardStyle }}">
+            <span style="flex:1;min-width:160px;font-size:15px">{{ si.area }} <span style="color:#4A5B75">{{ si.score }}</span></span>
+            <div style="display:flex;gap:6px;flex-wrap:wrap">
+              <button onClick="{{ si.pickS }}" style="{{ si.sStyle }}">Strength</button>
+              <button onClick="{{ si.pickN }}" style="{{ si.nStyle }}">Neither</button>
+              <button onClick="{{ si.pickP }}" style="{{ si.pStyle }}">Priority</button>
+            </div>
+            <sc-if value="{{ si.picked }}"><span role="status" style="{{ si.fbStyle }}">{{ si.feedback }}</span></sc-if>
+          </div>
+        </sc-for>
+      </div>
+      <sc-if value="{{ sortAllDone }}"><p style="font-size:14px;color:#2f5a37;font-weight:600">{{ sortRight }} of 6 tagged as the scorecard reads them. Strengths are named first so they can be protected and shared.</p></sc-if>
+    </div>
+  </sc-if>
+
+  <!-- 4 STAGES -->
+  <sc-if value="{{ s_stages }}">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;max-width:1000px">
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:18px 20px;display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;color:#B08D2E;font-weight:600">1</span><span style="font-weight:600;font-size:18px">Aspiring</span><span style="font-size:14px;color:#4A5B75">We know where we want to be and are not there yet.</span></div>
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:18px 20px;display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;color:#B08D2E;font-weight:600">2</span><span style="font-weight:600;font-size:18px">Emerging</span><span style="font-size:14px;color:#4A5B75">Practice is appearing in some classes, some weeks, some hands.</span></div>
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:18px 20px;display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;color:#B08D2E;font-weight:600">3</span><span style="font-weight:600;font-size:18px">Developing</span><span style="font-size:14px;color:#4A5B75">Practice is consistent across most of the school and improving on a plan.</span></div>
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:18px 20px;display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;color:#B08D2E;font-weight:600">4</span><span style="font-weight:600;font-size:18px">Impacting</span><span style="font-size:14px;color:#4A5B75">Practice is embedded and demonstrably changing outcomes.</span></div>
+    </div>
+    <div style="max-width:820px;background:#D9E1EC;border-radius:8px;padding:18px 22px;font-size:16px;text-wrap:pretty">A score band gives a starting position, never a final judgement. The leadership team validates the level with the Evidence Triangle — a number without a warrant is an opinion.</div>
+    <div style="max-width:820px;background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:12px">
+      <div style="font-weight:600;font-size:17px">Check: which stage does each description fit?</div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <sc-for list="{{ stageItems }}" as="st" hint-placeholder-count="4">
+          <div style="{{ st.cardStyle }}">
+            <span style="flex:1;min-width:200px;font-size:15px;text-wrap:pretty">{{ st.text }}</span>
+            <div style="display:flex;gap:6px;flex-wrap:wrap">
+              <sc-for list="{{ st.opts }}" as="o" hint-placeholder-count="4"><button onClick="{{ o.pick }}" style="{{ o.style }}">{{ o.label }}</button></sc-for>
+            </div>
+            <sc-if value="{{ st.picked }}"><span role="status" style="{{ st.fbStyle }}">{{ st.feedback }}</span></sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- 5 PRIORITIES -->
+  <sc-if value="{{ s_priorities }}">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));gap:12px;max-width:1000px">
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:18px 20px;display:flex;gap:14px"><span style="font-size:20px;font-weight:600;color:#B08D2E">1</span><div style="display:flex;flex-direction:column;gap:4px"><span style="font-weight:600;font-size:16px">Name strengths first</span><span style="font-size:14px;color:#4A5B75">Where are we already strong enough to protect and share practice?</span></div></div>
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:18px 20px;display:flex;gap:14px"><span style="font-size:20px;font-weight:600;color:#B08D2E">2</span><div style="display:flex;flex-direction:column;gap:4px"><span style="font-weight:600;font-size:16px">Identify the lowest leverage area</span><span style="font-size:14px;color:#4A5B75">Which lower score matters most for student learning and school systems?</span></div></div>
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:18px 20px;display:flex;gap:14px"><span style="font-size:20px;font-weight:600;color:#B08D2E">3</span><div style="display:flex;flex-direction:column;gap:4px"><span style="font-weight:600;font-size:16px">Choose a manageable focus</span><span style="font-size:14px;color:#4A5B75">What can leadership influence this term?</span></div></div>
+    </div>
+    <div style="max-width:820px;background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:6px 24px;display:grid;grid-template-columns:minmax(0,1fr) 56px minmax(0,1fr);font-size:14px;overflow-wrap:anywhere">
+      <span style="padding:12px 0;border-bottom:1px solid #D9E1EC;font-size:12px;color:#B08D2E;font-weight:600;letter-spacing:.08em;text-transform:uppercase">Survey area</span><span style="padding:12px 0;border-bottom:1px solid #D9E1EC;font-size:12px;color:#B08D2E;font-weight:600;letter-spacing:.08em;text-transform:uppercase">Score</span><span style="padding:12px 0;border-bottom:1px solid #D9E1EC;font-size:12px;color:#B08D2E;font-weight:600;letter-spacing:.08em;text-transform:uppercase">Indicative stage (band only)</span>
+      <span style="padding:12px 0;border-bottom:1px solid #D9E1EC">Assessment Quality</span><span style="padding:12px 0;border-bottom:1px solid #D9E1EC;font-weight:600">3.60</span><span style="padding:12px 0;border-bottom:1px solid #D9E1EC">Impacting — pending warrant</span>
+      <span style="padding:12px 0;border-bottom:1px solid #D9E1EC">Technical Practice</span><span style="padding:12px 0;border-bottom:1px solid #D9E1EC;font-weight:600">3.25</span><span style="padding:12px 0;border-bottom:1px solid #D9E1EC">Developing</span>
+      <span style="padding:12px 0;border-bottom:1px solid #D9E1EC">Feedback</span><span style="padding:12px 0;border-bottom:1px solid #D9E1EC;font-weight:600">3.00</span><span style="padding:12px 0;border-bottom:1px solid #D9E1EC">Developing</span>
+      <span style="padding:12px 0;border-bottom:1px solid #D9E1EC">Reward &amp; Recognition</span><span style="padding:12px 0;border-bottom:1px solid #D9E1EC;font-weight:600">3.00</span><span style="padding:12px 0;border-bottom:1px solid #D9E1EC">Developing</span>
+      <span style="padding:12px 0;border-bottom:1px solid #D9E1EC">Intervention</span><span style="padding:12px 0;border-bottom:1px solid #D9E1EC;font-weight:600">2.83</span><span style="padding:12px 0;border-bottom:1px solid #D9E1EC">Developing</span>
+      <span style="padding:12px 0">Management &amp; Monitoring</span><span style="padding:12px 0;font-weight:600;color:#B08D2E">2.67</span><span style="padding:12px 0">Developing</span>
+      <span style="grid-column:1 / -1;padding:10px 0 8px;font-size:13px;color:#4A5B75;border-top:1px solid #D9E1EC">Indicative stages are score bands only; each must be validated with a warrant.</span>
+    </div>
+    <div style="max-width:820px;background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:10px">
+      <div style="font-size:12px;color:#B08D2E;font-weight:600;letter-spacing:.08em;text-transform:uppercase">A possible leadership interpretation</div>
+      <p style="font-size:15px;text-wrap:pretty">The survey directly reports Management &amp; Monitoring as the lowest area at 2.67. A leadership inference — to be tested through action — is that it is a system lever: if review and documentation improve, feedback and intervention decisions become easier to track.</p>
+    </div>
+    <div style="max-width:820px;background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:12px">
+      <div style="font-weight:600;font-size:17px">Check: finding or inference?</div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <sc-for list="{{ fiItems }}" as="fi" hint-placeholder-count="3">
+          <div style="{{ fi.cardStyle }}">
+            <span style="flex:1;min-width:200px;font-size:15px;text-wrap:pretty">{{ fi.text }}</span>
+            <div style="display:flex;gap:6px"><button onClick="{{ fi.pickF }}" style="{{ fi.fStyle }}">Finding</button><button onClick="{{ fi.pickI }}" style="{{ fi.iStyle }}">Inference</button></div>
+            <sc-if value="{{ fi.picked }}"><span role="status" style="{{ fi.fbStyle }}">{{ fi.feedback }}</span></sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- 6 ACTION REPORT -->
+  <sc-if value="{{ s_actionreport }}">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;max-width:1000px">
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:18px 20px;display:flex;flex-direction:column;gap:4px"><span style="font-weight:600;font-size:17px">Objective</span><span style="font-size:14px;color:#4A5B75">What improvement are we trying to secure?</span></div>
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:18px 20px;display:flex;flex-direction:column;gap:4px"><span style="font-weight:600;font-size:17px">Key activities</span><span style="font-size:14px;color:#4A5B75">What will we do to achieve it?</span></div>
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:18px 20px;display:flex;flex-direction:column;gap:4px"><span style="font-weight:600;font-size:17px">Owner + timeline</span><span style="font-size:14px;color:#4A5B75">Who leads it and when is it reviewed?</span></div>
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:18px 20px;display:flex;flex-direction:column;gap:4px"><span style="font-weight:600;font-size:17px">Evidence</span><span style="font-size:14px;color:#4A5B75">How will we know implementation and impact?</span></div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:18px;max-width:1000px">
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:10px">
+        <div style="font-size:12px;color:#B08D2E;font-weight:600;letter-spacing:.08em;text-transform:uppercase">Example from Management &amp; Monitoring</div>
+        <p style="font-size:15px;text-wrap:pretty"><strong>Objective:</strong> strengthen leadership monitoring and documentation so assessment evidence is consistently reviewed, acted upon and revisited for impact.</p>
+      </div>
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:10px">
+        <div style="font-size:12px;color:#B08D2E;font-weight:600;letter-spacing:.08em;text-transform:uppercase">Key leadership shift</div>
+        <p style="font-size:15px;color:#4A5B75"><strong style="color:#1F3A5F">From:</strong> “We had a meeting.”</p>
+        <p style="font-size:15px"><strong>To:</strong> “The meeting produced decisions, actions, follow-up dates and evidence of impact.”</p>
+      </div>
+    </div>
+    <div style="max-width:820px;background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:12px">
+      <div style="font-weight:600;font-size:17px">Try it: rewrite one line from your own action plan</div>
+      <p style="font-size:14px;color:#4A5B75">Take a “we had a meeting” line and rewrite it so it names the decision, the owner, the follow-up date and the evidence you would expect.</p>
+      <textarea rows="3" value="{{ rewriteNote }}" onChange="{{ onRewriteNote }}" placeholder="e.g. Heads of Department review Term 1 assessment data on 14 Oct; decisions logged in the action tracker; revisited 11 Nov." style="width:100%;padding:12px 14px;border-radius:8px;border:1px solid #B8C3D4;background:#fff;font-size:15px;resize:vertical;color:#1F3A5F"></textarea>
+    </div>
+  </sc-if>
+
+  <!-- 7 ACTIVITY VS IMPACT -->
+  <sc-if value="{{ s_activity }}">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;max-width:1000px">
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:18px 20px;display:flex;flex-direction:column;gap:4px"><span style="font-weight:600;font-size:17px">Activity</span><span style="font-size:14px;color:#4A5B75">What the school does.</span></div>
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:18px 20px;display:flex;flex-direction:column;gap:4px"><span style="font-weight:600;font-size:17px">Implementation evidence</span><span style="font-size:14px;color:#4A5B75">Proof the activity happened.</span></div>
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:18px 20px;display:flex;flex-direction:column;gap:4px"><span style="font-weight:600;font-size:17px">Outcome evidence</span><span style="font-size:14px;color:#4A5B75">Proof it made a difference.</span></div>
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:18px 20px;display:flex;flex-direction:column;gap:4px"><span style="font-weight:600;font-size:17px">Indicator</span><span style="font-size:14px;color:#4A5B75">The measure used to judge progress.</span></div>
+    </div>
+    <div style="max-width:1000px;background:#D9E1EC;border-radius:8px;padding:18px 22px;font-size:15px;text-wrap:pretty"><strong>Worked example — Management &amp; Monitoring.</strong> Activity: monthly assessment-review meetings. Implementation: minutes and action tracker. Outcome: decisions followed up and revisited. Indicator: % of agreed actions completed by the next review.</div>
+    <div style="max-width:820px;background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:12px">
+      <div style="font-weight:600;font-size:17px">Check: classify each item</div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <sc-for list="{{ classItems }}" as="ci" hint-placeholder-count="4">
+          <div style="{{ ci.cardStyle }}">
+            <span style="flex:1;min-width:200px;font-size:15px;text-wrap:pretty">{{ ci.text }}</span>
+            <div style="display:flex;gap:6px;flex-wrap:wrap"><sc-for list="{{ ci.opts }}" as="o" hint-placeholder-count="4"><button onClick="{{ o.pick }}" style="{{ o.style }}">{{ o.label }}</button></sc-for></div>
+            <sc-if value="{{ ci.picked }}"><span role="status" style="{{ ci.fbStyle }}">{{ ci.feedback }}</span></sc-if>
+          </div>
+        </sc-for>
+      </div>
+      <p style="font-size:14px;color:#4A5B75;text-wrap:pretty">Minutes prove a meeting happened — an activity. Only outcome evidence and a moving indicator justify a claim of improvement.</p>
+    </div>
+  </sc-if>
+
+  <!-- 8 SCORECARD ENTRY -->
+  <sc-if value="{{ s_entry }}">
+    <div style="max-width:820px;background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:6px 24px;display:grid;grid-template-columns:minmax(110px,200px) minmax(0,1fr);column-gap:12px;font-size:15px">
+      <span style="padding:14px 0;border-bottom:1px solid #D9E1EC;font-size:12px;color:#B08D2E;font-weight:600;letter-spacing:.06em;text-transform:uppercase">Priority area</span><span style="padding:14px 0;border-bottom:1px solid #D9E1EC;font-weight:600">Management &amp; Monitoring</span>
+      <span style="padding:14px 0;border-bottom:1px solid #D9E1EC;font-size:12px;color:#B08D2E;font-weight:600;letter-spacing:.06em;text-transform:uppercase">Baseline</span><span style="padding:14px 0;border-bottom:1px solid #D9E1EC">2.67 / 4</span>
+      <span style="padding:14px 0;border-bottom:1px solid #D9E1EC;font-size:12px;color:#B08D2E;font-weight:600;letter-spacing:.06em;text-transform:uppercase">Owner</span><span style="padding:14px 0;border-bottom:1px solid #D9E1EC">Principal / Heads of Department / Teachers</span>
+      <span style="padding:14px 0;border-bottom:1px solid #D9E1EC;font-size:12px;color:#B08D2E;font-weight:600;letter-spacing:.06em;text-transform:uppercase">Key action</span><span style="padding:14px 0;border-bottom:1px solid #D9E1EC">Schedule regular leadership reviews of assessment results and progress</span>
+      <span style="padding:14px 0;border-bottom:1px solid #D9E1EC;font-size:12px;color:#B08D2E;font-weight:600;letter-spacing:.06em;text-transform:uppercase">Evidence of implementation</span><span style="padding:14px 0;border-bottom:1px solid #D9E1EC">Meeting minutes, curriculum monitoring records, action plans</span>
+      <span style="padding:14px 0;font-size:12px;color:#B08D2E;font-weight:600;letter-spacing:.06em;text-transform:uppercase">Evidence of impact</span><span style="padding:14px 0">Assessment decisions become traceable and revisited for impact</span>
+    </div>
+    <div style="max-width:820px;background:#D9E1EC;border-radius:8px;padding:18px 22px;font-size:16px">The scorecard makes each action visible enough to review — not merely listed.</div>
+    <div style="max-width:820px;background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:12px">
+      <div style="font-weight:600;font-size:17px">Check: what is missing from this line?</div>
+      <p style="font-size:15px;text-wrap:pretty">“Priority: Feedback · Baseline 3.00 · Action: run a feedback workshop for staff · Evidence: workshop attendance list.”</p>
+      <div style="display:flex;flex-direction:column;gap:8px"><sc-for list="{{ missingOpts }}" as="o" hint-placeholder-count="3"><button onClick="{{ o.pick }}" style="{{ o.style }}">{{ o.label }}</button></sc-for></div>
+      <sc-if value="{{ missingPicked }}"><p role="status" style="{{ missingFbStyle }}">{{ missingFeedback }}</p></sc-if>
+    </div>
+  </sc-if>
+
+  <!-- 9 HYPOTHESIS -->
+  <sc-if value="{{ s_hypothesis }}">
+    <div style="max-width:820px;display:flex;flex-direction:column;gap:10px">
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:18px 22px;display:grid;grid-template-columns:minmax(64px,110px) minmax(0,1fr);gap:16px;align-items:center"><span style="font-size:clamp(18px,3vw,26px);font-weight:700;color:#B08D2E">IF</span><span style="font-size:15px;text-wrap:pretty">we schedule monthly assessment-review meetings and record decisions, owners and follow-up dates</span></div>
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:18px 22px;display:grid;grid-template-columns:minmax(64px,110px) minmax(0,1fr);gap:16px;align-items:center"><span style="font-size:clamp(18px,3vw,26px);font-weight:700;color:#B08D2E">THEN</span><span style="font-size:15px;text-wrap:pretty">by the Term 1 review at least 90% of agreed actions are completed and revisited, and assessment decisions become traceable</span></div>
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:18px 22px;display:grid;grid-template-columns:minmax(64px,110px) minmax(0,1fr);gap:16px;align-items:center"><span style="font-size:clamp(18px,3vw,26px);font-weight:700;color:#B08D2E">BECAUSE</span><span style="font-size:15px;text-wrap:pretty">decisions that are written, owned and revisited get done — undocumented decisions evaporate between meetings</span></div>
+    </div>
+    <div style="max-width:820px;background:#D9E1EC;border-radius:8px;padding:18px 22px;font-size:15px;text-wrap:pretty">A hypothesis turns a data finding into a testable leadership claim. Next term, leaders ask: Did the action happen? Did it help? What should change?</div>
+    <div style="max-width:820px;background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:12px">
+      <div style="font-weight:600;font-size:17px">Check: which hypothesis is testable at the Term 1 review?</div>
+      <div style="display:flex;flex-direction:column;gap:8px"><sc-for list="{{ hypOpts }}" as="o" hint-placeholder-count="3"><button onClick="{{ o.pick }}" style="{{ o.style }}">{{ o.label }}</button></sc-for></div>
+      <sc-if value="{{ hypPicked }}"><p role="status" style="{{ hypFbStyle }}">{{ hypFeedback }}</p></sc-if>
+    </div>
+  </sc-if>
+
+  <!-- 10 TRIANGLE -->
+  <sc-if value="{{ s_triangle }}">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));gap:14px;max-width:1000px">
+      <div style="display:flex;flex-direction:column;gap:10px"><div style="background:#2F6FB3;color:#fff;border-radius:8px;padding:12px 18px;font-weight:600;font-size:17px;text-align:center">Voice</div><div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:16px 18px;display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;color:#B08D2E;font-weight:600;letter-spacing:.08em;text-transform:uppercase">At School A</span><span style="font-size:14px;text-wrap:pretty">Teacher and student feedback on whether assessment feedback is useful and acted on.</span></div></div>
+      <div style="display:flex;flex-direction:column;gap:10px"><div style="background:#2E8B57;color:#fff;border-radius:8px;padding:12px 18px;font-weight:600;font-size:17px;text-align:center">Artefact</div><div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:16px 18px;display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;color:#B08D2E;font-weight:600;letter-spacing:.08em;text-transform:uppercase">At School A</span><span style="font-size:14px;text-wrap:pretty">Assessment-review minutes, intervention registers, rubrics, marked samples, action plans.</span></div></div>
+      <div style="display:flex;flex-direction:column;gap:10px"><div style="background:#B08D2E;color:#fff;border-radius:8px;padding:12px 18px;font-weight:600;font-size:17px;text-align:center">Observation</div><div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:16px 18px;display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;color:#B08D2E;font-weight:600;letter-spacing:.08em;text-transform:uppercase">At School A</span><span style="font-size:14px;text-wrap:pretty">What leadership sees in classrooms, student work, review meetings and intervention sessions.</span></div></div>
+    </div>
+    <div style="max-width:1000px;background:#D9E1EC;border-radius:8px;padding:18px 22px;font-size:16px;text-wrap:pretty">At least two sources for any judgement; no Impacting claim without all three — Voice, Artefact and Observation.</div>
+    <div style="max-width:820px;background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:12px">
+      <div style="font-weight:600;font-size:17px">Check: can the claim stand?</div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <sc-for list="{{ triItems }}" as="ti" hint-placeholder-count="3">
+          <div style="{{ ti.cardStyle }}">
+            <span style="flex:1;min-width:200px;font-size:15px;text-wrap:pretty">{{ ti.text }}</span>
+            <div style="display:flex;gap:6px"><button onClick="{{ ti.pickY }}" style="{{ ti.yStyle }}">Warranted</button><button onClick="{{ ti.pickN }}" style="{{ ti.nStyle }}">Not yet</button></div>
+            <sc-if value="{{ ti.picked }}"><span role="status" style="{{ ti.fbStyle }}">{{ ti.feedback }}</span></sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- 11 PILLARS -->
+  <sc-if value="{{ s_pillars }}">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;max-width:1100px">
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:18px 20px;display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;color:#B08D2E;font-weight:600">P1</span><span style="font-weight:600;font-size:16px">Academic Excellence</span><span style="font-size:14px;color:#4A5B75">assessment, feedback, technical practice</span></div>
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:18px 20px;display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;color:#B08D2E;font-weight:600">P2</span><span style="font-weight:600;font-size:16px">Student Development &amp; Voice</span><span style="font-size:14px;color:#4A5B75">intervention, recognition</span></div>
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:18px 20px;display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;color:#B08D2E;font-weight:600">P3</span><span style="font-weight:600;font-size:16px">Teaching &amp; Leadership</span><span style="font-size:14px;color:#4A5B75">monitoring, shared practice</span></div>
+      <div style="background:#fff;border:1px dashed #B8C3D4;border-radius:8px;padding:18px 20px;display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;color:#B08D2E;font-weight:600">P4</span><span style="font-weight:600;font-size:16px">Community &amp; Stakeholders</span><span style="font-size:14px;color:#4A5B75;font-style:italic">not surveyed this cycle</span></div>
+      <div style="background:#fff;border:1px dashed #B8C3D4;border-radius:8px;padding:18px 20px;display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;color:#B08D2E;font-weight:600">P5</span><span style="font-weight:600;font-size:16px">Wellbeing &amp; Sustainability</span><span style="font-size:14px;color:#4A5B75;font-style:italic">awaiting evidence source</span></div>
+    </div>
+    <div style="max-width:1100px;background:#D9E1EC;border-radius:8px;padding:18px 22px;font-size:16px;text-wrap:pretty">A pillar with no evidence carries no score. Do not infer what the data did not measure.</div>
+    <div style="max-width:820px;background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:12px">
+      <div style="font-weight:600;font-size:17px">Check: School A’s wellbeing pillar has no survey data this cycle. What goes on the scorecard?</div>
+      <div style="display:flex;flex-direction:column;gap:8px"><sc-for list="{{ pillarOpts }}" as="o" hint-placeholder-count="3"><button onClick="{{ o.pick }}" style="{{ o.style }}">{{ o.label }}</button></sc-for></div>
+      <sc-if value="{{ pillarPicked }}"><p role="status" style="{{ pillarFbStyle }}">{{ pillarFeedback }}</p></sc-if>
+    </div>
+  </sc-if>
+
+  <!-- 12 CYCLE -->
+  <sc-if value="{{ s_cycle }}">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;max-width:1000px">
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:18px 20px;display:flex;flex-direction:column;gap:4px"><span style="font-weight:600;font-size:17px">Baseline</span><span style="font-size:14px;color:#4A5B75">survey score and priority</span></div>
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:18px 20px;display:flex;flex-direction:column;gap:4px"><span style="font-weight:600;font-size:17px">Term 1</span><span style="font-size:14px;color:#4A5B75">implementation evidence</span></div>
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:18px 20px;display:flex;flex-direction:column;gap:4px"><span style="font-weight:600;font-size:17px">Term 2</span><span style="font-size:14px;color:#4A5B75">movement and learning</span></div>
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:18px 20px;display:flex;flex-direction:column;gap:4px"><span style="font-weight:600;font-size:17px">Term 3</span><span style="font-size:14px;color:#4A5B75">impact claim or revise</span></div>
+    </div>
+    <div style="max-width:820px;background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:10px">
+      <div style="font-size:12px;color:#B08D2E;font-weight:600;letter-spacing:.08em;text-transform:uppercase">Each termly review asks</div>
+      <ol style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px;font-size:15px">
+        <li>Did the planned action happen?</li>
+        <li>What evidence supports that it happened?</li>
+        <li>What changed for students, teachers or systems?</li>
+        <li>Was our improvement hypothesis validated?</li>
+        <li>What is the next adjustment?</li>
+      </ol>
+    </div>
+    <div style="max-width:820px;background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:12px">
+      <div style="font-weight:600;font-size:17px">Check: match the evidence to the term</div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <sc-for list="{{ termItems }}" as="tm" hint-placeholder-count="3">
+          <div style="{{ tm.cardStyle }}">
+            <span style="flex:1;min-width:200px;font-size:15px;text-wrap:pretty">{{ tm.text }}</span>
+            <div style="display:flex;gap:6px;flex-wrap:wrap"><sc-for list="{{ tm.opts }}" as="o" hint-placeholder-count="3"><button onClick="{{ o.pick }}" style="{{ o.style }}">{{ o.label }}</button></sc-for></div>
+            <sc-if value="{{ tm.picked }}"><span role="status" style="{{ tm.fbStyle }}">{{ tm.feedback }}</span></sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- 13 ILLUSTRATION -->
+  <sc-if value="{{ s_illustration }}">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:18px;max-width:1000px;align-items:start">
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:16px">
+        <div style="font-size:12px;color:#B08D2E;font-weight:600;letter-spacing:.08em;text-transform:uppercase">Illustrative trajectory · Management &amp; Monitoring</div>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:18px;align-items:end;height:200px">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:6px;height:100%;justify-content:flex-end"><span style="font-weight:600">2.67</span><div style="width:100%;height:60%;background:#1F3A5F;border-radius:4px 4px 0 0"></div><span style="font-size:13px;color:#4A5B75">Baseline</span></div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:6px;height:100%;justify-content:flex-end"><span style="font-weight:600">2.80</span><div style="width:100%;height:65%;background:#D9E1EC;border:2px dashed #7F93AE;border-radius:4px 4px 0 0"></div><span style="font-size:13px;color:#4A5B75">Term 1</span></div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:6px;height:100%;justify-content:flex-end"><span style="font-weight:600">3.00</span><div style="width:100%;height:71%;background:#D9E1EC;border:2px dashed #7F93AE;border-radius:4px 4px 0 0"></div><span style="font-size:13px;color:#4A5B75">Term 2</span></div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:6px;height:100%;justify-content:flex-end"><span style="font-weight:600">3.15</span><div style="width:100%;height:76%;background:#D9E1EC;border:2px dashed #7F93AE;border-radius:4px 4px 0 0"></div><span style="font-size:13px;color:#4A5B75">Term 3</span></div>
+        </div>
+        <span style="font-size:13px;color:#4A5B75">Dashed bars are illustrative, not recorded.</span>
+      </div>
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:10px">
+        <div style="font-size:12px;color:#B08D2E;font-weight:600;letter-spacing:.08em;text-transform:uppercase">Say this carefully</div>
+        <p style="font-size:15px;text-wrap:pretty">This trajectory is illustrative — School A’s first review is Term 1, so no movement has yet been recorded.</p>
+        <p style="font-size:15px;text-wrap:pretty">Movement from 2.67 to 3.15 would suggest progress, but the claim is only as strong as the Evidence Triangle and the warrant behind it.</p>
+      </div>
+    </div>
+    <div style="max-width:820px;background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:12px">
+      <div style="font-weight:600;font-size:17px">Check: which statement could School A make today?</div>
+      <div style="display:flex;flex-direction:column;gap:8px"><sc-for list="{{ claimOpts }}" as="o" hint-placeholder-count="3"><button onClick="{{ o.pick }}" style="{{ o.style }}">{{ o.label }}</button></sc-for></div>
+      <sc-if value="{{ claimPicked }}"><p role="status" style="{{ claimFbStyle }}">{{ claimFeedback }}</p></sc-if>
+    </div>
+  </sc-if>
+
+  <!-- 14 QUESTIONS -->
+  <sc-if value="{{ s_questions }}">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));gap:12px;max-width:1000px">
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:18px 20px;display:flex;gap:14px"><span style="font-size:22px;font-weight:700;color:#B08D2E">1</span><span style="font-size:15px">What did the data tell us?</span></div>
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:18px 20px;display:flex;gap:14px"><span style="font-size:22px;font-weight:700;color:#B08D2E">2</span><span style="font-size:15px">What did we decide to prioritise?</span></div>
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:18px 20px;display:flex;gap:14px"><span style="font-size:22px;font-weight:700;color:#B08D2E">3</span><span style="font-size:15px">Did the planned action happen?</span></div>
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:18px 20px;display:flex;gap:14px"><span style="font-size:22px;font-weight:700;color:#B08D2E">4</span><span style="font-size:15px">What evidence warrants the current score?</span></div>
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:18px 20px;display:flex;gap:14px"><span style="font-size:22px;font-weight:700;color:#B08D2E">5</span><span style="font-size:15px">What changed for learners or teacher practice?</span></div>
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:18px 20px;display:flex;gap:14px"><span style="font-size:22px;font-weight:700;color:#B08D2E">6</span><span style="font-size:15px">What should we stop, continue, adapt or scale?</span></div>
+    </div>
+    <div style="max-width:1000px;background:#D9E1EC;border-radius:8px;padding:18px 22px;font-size:16px">The balanced scorecard is useful only if it changes leadership conversation.</div>
+    <div style="max-width:820px;background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:12px">
+      <div style="font-weight:600;font-size:17px">Reflect: which question is most often missing from your own review meetings?</div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{ qPickOpts }}" as="o" hint-placeholder-count="6"><button onClick="{{ o.pick }}" aria-pressed="{{ o.on }}" style="{{ o.style }}">{{ o.label }}</button></sc-for></div>
+      <sc-if value="{{ qPicked }}"><p style="font-size:14px;color:#4A5B75">Noted. Bring question {{ qPickN }} to your next termly review — it will appear on your capstone.</p></sc-if>
+    </div>
+  </sc-if>
+
+  <!-- 15 YOUR TASK -->
+  <sc-if value="{{ s_task }}">
+    <div style="max-width:820px;background:#D9E1EC;border-radius:8px;padding:18px 22px;display:flex;flex-direction:column;gap:4px">
+      <span style="font-size:12px;color:#B08D2E;font-weight:600;letter-spacing:.08em;text-transform:uppercase">Your task · 5 protected minutes</span>
+      <span style="font-size:15px;text-wrap:pretty">Working alone, complete every field below for the given action: “Develop short-term intervention plans with clear targets.”</span>
+    </div>
+    <div style="max-width:820px;background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:16px">
+      <div style="display:flex;flex-wrap:wrap;gap:8px 20px;font-size:15px"><span><strong>Priority area:</strong> Intervention</span><span><strong>Baseline:</strong> 2.83 / 4</span><span><strong>Key action:</strong> Develop short-term intervention plans with clear targets</span></div>
+      <label style="display:flex;flex-direction:column;gap:6px;font-size:14px"><span style="font-weight:600">Improvement objective</span><textarea rows="2" value="{{ task.objective }}" onChange="{{ onTaskObjective }}" placeholder="What improvement are we trying to secure?" style="width:100%;padding:10px 12px;border-radius:8px;border:1px solid #B8C3D4;background:#fff;font-size:15px;resize:vertical;color:#1F3A5F"></textarea></label>
+      <label style="display:flex;flex-direction:column;gap:6px;font-size:14px"><span style="font-weight:600">Owner and review timeline</span><textarea rows="2" value="{{ task.owner }}" onChange="{{ onTaskOwner }}" placeholder="Who leads it in your school? Name the role and the review date." style="width:100%;padding:10px 12px;border-radius:8px;border:1px solid #B8C3D4;background:#fff;font-size:15px;resize:vertical;color:#1F3A5F"></textarea></label>
+      <label style="display:flex;flex-direction:column;gap:6px;font-size:14px"><span style="font-weight:600">Evidence of implementation</span><textarea rows="2" value="{{ task.impl }}" onChange="{{ onTaskImpl }}" placeholder="What artefacts would prove the plans exist and are monitored?" style="width:100%;padding:10px 12px;border-radius:8px;border:1px solid #B8C3D4;background:#fff;font-size:15px;resize:vertical;color:#1F3A5F"></textarea></label>
+      <label style="display:flex;flex-direction:column;gap:6px;font-size:14px"><span style="font-weight:600">Evidence of impact and indicator</span><textarea rows="2" value="{{ task.impact }}" onChange="{{ onTaskImpact }}" placeholder="What outcome evidence and indicator would show students improved?" style="width:100%;padding:10px 12px;border-radius:8px;border:1px solid #B8C3D4;background:#fff;font-size:15px;resize:vertical;color:#1F3A5F"></textarea></label>
+      <label style="display:flex;flex-direction:column;gap:6px;font-size:14px"><span style="font-weight:600">Hypothesis</span><textarea rows="3" value="{{ task.hyp }}" onChange="{{ onTaskHyp }}" placeholder="If we… then… [measurable, dated] … because…" style="width:100%;padding:10px 12px;border-radius:8px;border:1px solid #B8C3D4;background:#fff;font-size:15px;resize:vertical;color:#1F3A5F"></textarea></label>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center"><span style="{{ taskStatusStyle }}">{{ taskStatus }}</span><span style="font-size:13px;color:#4A5B75">Saved on this device as you type.</span></div>
+    </div>
+  </sc-if>
+
+  <!-- 16 ETHICS -->
+  <sc-if value="{{ s_ethics }}">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:14px;max-width:1000px">
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:10px"><span style="font-size:12px;color:#B08D2E;font-weight:600;letter-spacing:.08em;text-transform:uppercase">Scores firewall</span><span style="font-size:15px;text-wrap:pretty">Scores are held by the school, used for coaching, never published in league form. The worked example is anonymised as “School A”; the school is named only with its written consent.</span></div>
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:10px"><span style="font-size:12px;color:#B08D2E;font-weight:600;letter-spacing:.08em;text-transform:uppercase">Do no harm</span><span style="font-size:15px;text-wrap:pretty">A score is a starting point, never a target. The goal is not to raise the score but to improve practice and outcomes — scores move only when evidence warrants movement.</span></div>
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:10px"><span style="font-size:12px;color:#B08D2E;font-weight:600;letter-spacing:.08em;text-transform:uppercase">Leadership discipline</span><span style="font-size:15px;text-wrap:pretty">Use data to ask better questions, protect strengths, focus support and review progress — not to generate fear.</span></div>
+    </div>
+    <div style="max-width:820px;background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:12px">
+      <div style="font-weight:600;font-size:17px">Check: coaching or surveillance?</div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <sc-for list="{{ ethItems }}" as="ei" hint-placeholder-count="3">
+          <div style="{{ ei.cardStyle }}">
+            <span style="flex:1;min-width:200px;font-size:15px;text-wrap:pretty">{{ ei.text }}</span>
+            <div style="display:flex;gap:6px"><button onClick="{{ ei.pickC }}" style="{{ ei.cStyle }}">Coaching</button><button onClick="{{ ei.pickS }}" style="{{ ei.sStyle }}">Surveillance</button></div>
+            <sc-if value="{{ ei.picked }}"><span role="status" style="{{ ei.fbStyle }}">{{ ei.feedback }}</span></sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- 17 QUIZ -->
+  <sc-if value="{{ s_quiz }}">
+    <div style="max-width:820px;display:flex;flex-direction:column;gap:14px">
+      <sc-for list="{{ quizItems }}" as="qz" hint-placeholder-count="4">
+        <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:12px">
+          <span style="font-size:12px;color:#B08D2E;font-weight:600;letter-spacing:.08em;text-transform:uppercase">Question {{ qz.n }}</span>
+          <h3 style="font-size:17px;text-wrap:pretty">{{ qz.q }}</h3>
+          <div role="radiogroup" aria-label="Answer options for question {{ qz.n }}" style="display:flex;flex-direction:column;gap:8px">
+            <sc-for list="{{ qz.opts }}" as="o" hint-placeholder-count="4"><button role="radio" aria-checked="{{ o.on }}" onClick="{{ o.pick }}" disabled="{{ qz.revealed }}" style="{{ o.style }}"><span style="font-weight:600;width:22px;flex-shrink:0">{{ o.letter }}</span><span>{{ o.text }}</span></button></sc-for>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center">
+            <sc-if value="{{ qz.notRevealed }}"><button onClick="{{ qz.reveal }}" disabled="{{ qz.noPick }}" style="padding:8px 16px;border-radius:8px;border:1px solid #1F3A5F;background:#1F3A5F;color:#fff;font-weight:600;font-size:14px" style-hover="background:#16304f">Reveal answer</button></sc-if>
+            <sc-if value="{{ qz.revealed }}"><div style="{{ qz.resultStyle }}"><strong>{{ qz.resultLabel }}</strong> {{ qz.why }}</div></sc-if>
+          </div>
+        </div>
+      </sc-for>
+      <sc-if value="{{ quizAllRevealed }}"><div role="status" style="background:#1F3A5F;color:#fff;border-radius:8px;padding:20px 24px;display:flex;flex-direction:column;gap:10px">
+        <div style="display:flex;flex-wrap:wrap;gap:8px 20px;align-items:baseline"><span style="font-size:32px;font-weight:700;line-height:1">{{ quizScore }}/4</span><span style="font-size:16px;font-weight:600;color:#fff">{{ quizVerdict }}</span></div>
+        <p style="font-size:14px;color:#D9E1EC;text-wrap:pretty">{{ quizAdvice }}</p>
+        <sc-if value="{{ quizWeak }}"><div style="display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{ quizRevisit }}" as="rv" hint-placeholder-count="2"><button onClick="{{ rv.go }}" style="padding:6px 12px;border-radius:999px;border:1px solid #B08D2E;background:transparent;color:#fff;font-weight:600;font-size:13px;white-space:nowrap" style-hover="background:rgba(176,141,46,.25)">Revisit: {{ rv.title }}</button></sc-for></div></sc-if>
+      </div></sc-if>
+    </div>
+  </sc-if>
+
+  <!-- 18 CAPSTONE -->
+  <sc-if value="{{ s_capstone }}">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;max-width:1000px">
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:18px 20px;display:flex;flex-direction:column;gap:6px"><span style="font-weight:600;font-size:17px">Choose one</span><span style="font-size:14px;color:#4A5B75">Select one survey area where improvement would unlock wider school progress.</span></div>
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:18px 20px;display:flex;flex-direction:column;gap:6px"><span style="font-weight:600;font-size:17px">Write one</span><span style="font-size:14px;color:#4A5B75">Draft one improvement hypothesis: if we… then… because…</span></div>
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:18px 20px;display:flex;flex-direction:column;gap:6px"><span style="font-weight:600;font-size:17px">Track one</span><span style="font-size:14px;color:#4A5B75">Agree one warrant and two evidence sources before the termly review.</span></div>
+    </div>
+    <div style="max-width:820px;background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:14px">
+      <div style="font-size:12px;color:#B08D2E;font-weight:600;letter-spacing:.08em;text-transform:uppercase">My 30-day commitment</div>
+      <sc-if value="{{ hasOpeningNote }}"><div style="padding:12px 14px;border-radius:8px;background:#F2F4F8;font-size:14px"><span style="color:#4A5B75">At the start you wrote:</span> “{{ openingNote }}” <span style="color:#4A5B75">— does your commitment answer it?</span></div></sc-if>
+      <sc-if value="{{ qPicked }}"><div style="padding:12px 14px;border-radius:8px;background:#F2F4F8;font-size:14px"><span style="color:#4A5B75">Review question you flagged as missing:</span> {{ qPickText }}</div></sc-if>
+      <div style="display:flex;flex-direction:column;gap:12px;font-size:16px">
+        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px"><span>I will use the scorecard to focus on</span><input type="text" value="{{ commitFocus }}" onChange="{{ onCommitFocus }}" placeholder="one survey area" style="flex:1;min-width:200px;min-height:40px;padding:8px 12px;border-radius:8px;border:1px solid #B8C3D4;background:#fff;font-size:15px;color:#1F3A5F"></div>
+        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px"><span>because</span><input type="text" value="{{ commitBecause }}" onChange="{{ onCommitBecause }}" placeholder="the reason it unlocks wider progress" style="flex:1;min-width:200px;min-height:40px;padding:8px 12px;border-radius:8px;border:1px solid #B8C3D4;background:#fff;font-size:15px;color:#1F3A5F"></div>
+      </div>
+    </div>
+    <div style="max-width:820px;background:#D9E1EC;border-radius:8px;padding:18px 22px;font-size:15px;text-wrap:pretty"><strong>Required output:</strong> one completed scorecard line — priority, baseline, objective, action, owner, implementation evidence, impact evidence, hypothesis, review date.</div>
+  </sc-if>
+
+  <!-- 19 CERTIFICATE -->
+  <sc-if value="{{ s_cert }}">
+    <sc-if value="{{ certLocked }}">
+      <div style="max-width:820px;background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:12px">
+        <h3 style="font-size:18px">To complete this micro-course</h3>
+        <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;font-size:15px">
+          <li style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><span style="{{ req1Style }}">1</span><span>Work through all {{ lessonCount }} lessons</span><span style="color:#4A5B75">({{ completedCount }}/{{ lessonCount }})</span></li>
+          <li style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><span style="{{ req2Style }}">2</span><span>Complete your Intervention scorecard line</span><span style="color:#4A5B75">({{ taskFilled }}/5 fields)</span><button onClick="{{ goTask }}" style="padding:4px 12px;border-radius:999px;border:1px solid #B08D2E;background:transparent;color:#8a6a1a;font-weight:600;font-size:12px;white-space:nowrap;flex-shrink:0">Go to task</button></li>
+          <li style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><span style="{{ req3Style }}">3</span><span>Finish the knowledge check</span><span style="color:#4A5B75">({{ quizRevealedCount }}/4 revealed)</span><button onClick="{{ goQuiz }}" style="padding:4px 12px;border-radius:999px;border:1px solid #B08D2E;background:transparent;color:#8a6a1a;font-weight:600;font-size:12px;white-space:nowrap;flex-shrink:0">Go to knowledge check</button></li>
+          <li style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><span style="{{ req4Style }}">4</span><span>Write your 30-day commitment</span><button onClick="{{ goCapstone }}" style="padding:4px 12px;border-radius:999px;border:1px solid #B08D2E;background:transparent;color:#8a6a1a;font-weight:600;font-size:12px;white-space:nowrap;flex-shrink:0">Go to capstone</button></li>
+        </ul>
+        <p style="font-size:14px;color:#4A5B75">Your certificate appears here once every step is done.</p>
+      </div>
+    </sc-if>
+    <sc-if value="{{ certReady }}">
+      <div data-noprint="1" style="max-width:900px;display:flex;flex-wrap:wrap;gap:10px;align-items:center">
+        <button onClick="{{ printCert }}" style="min-height:44px;padding:10px 18px;border-radius:8px;border:1px solid #1F3A5F;background:#1F3A5F;color:#fff;font-weight:600;font-size:14px;white-space:nowrap;flex-shrink:0" style-hover="background:#16304f">Print / save as PDF</button>
+        <button onClick="{{ downloadBadge }}" disabled="{{ badgeBusy }}" style="min-height:44px;padding:10px 18px;border-radius:8px;border:1px solid #1F3A5F;background:transparent;color:#1F3A5F;font-weight:600;font-size:14px;white-space:nowrap;flex-shrink:0" style-hover="background:#fff">{{ badgeLabel }}</button>
+        <span style="font-size:13px;color:#4A5B75">Congratulations, {{ name }}. The badge is a PNG you can add to email signatures or LinkedIn.</span>
+      </div>
+      <div data-printroot="1" style="max-width:900px;background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:clamp(28px,5vw,56px) clamp(22px,6vw,64px) clamp(24px,4vw,40px);position:relative;display:flex;flex-direction:column;text-align:center">
+        <div data-frame="1" style="position:absolute;inset:12px;border:1px solid #D9E1EC;pointer-events:none;border-radius:4px"></div>
+        <div data-frame="1" style="position:absolute;inset:16px;border:1px solid #B08D2E;opacity:.55;pointer-events:none;border-radius:2px"></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:10px">
+          <img src="assets/badge-silver.png" alt="Bloom Learning Labs Data Analytics Badge — silver" width="96" height="96" style="display:block;width:clamp(72px,10vw,96px);height:auto;filter:drop-shadow(0 4px 10px rgba(31,58,95,.16))">
+          <span style="font-size:13px;font-variant:small-caps;letter-spacing:.18em;color:#B08D2E;font-weight:600">Bloom Learning Lab 02</span>
+        </div>
+        <div style="margin-top:28px;font-size:clamp(20px,3vw,28px);letter-spacing:.22em;text-transform:uppercase;color:#1F3A5F;font-weight:600;line-height:1.1">Certificate of Completion</div>
+        <div style="margin:18px auto 0;width:64px;height:2px;background:#B08D2E"></div>
+        <p style="margin-top:28px;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:#4A5B75">This certificate is presented to</p>
+        <h2 style="margin-top:10px;font-size:clamp(30px,5vw,52px);line-height:1.08;font-weight:700;overflow-wrap:anywhere;color:#1F3A5F">{{ name }}</h2>
+        <p style="margin-top:22px;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:#4A5B75">for completing the 30-minute micro-course</p>
+        <h3 style="margin-top:8px;font-size:clamp(19px,2.6vw,26px);font-weight:600;line-height:1.25;color:#1F3A5F">Using Data to Direct School Improvement</h3>
+        <p style="margin:22px auto 0;font-size:14px;max-width:560px;text-wrap:pretty;color:#1F3A5F;line-height:1.6">Completed all lessons, built one Intervention scorecard line, scored {{ quizScore }}/4 on the knowledge check and recorded a 30-day leadership commitment.</p>
+        <p style="margin:12px auto 0;font-size:13.5px;font-style:italic;color:#4A5B75;max-width:560px;text-wrap:pretty">“I will use the scorecard to focus on {{ commitFocus }} because {{ commitBecause }}.”</p>
+        <div style="margin-top:36px;padding-top:22px;border-top:1px solid #D9E1EC;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(150px,100%),1fr));gap:18px 24px;text-align:left;font-size:13px;align-items:end">
+          <div style="display:flex;flex-direction:column;gap:2px"><span style="color:#4A5B75;letter-spacing:.1em;text-transform:uppercase;font-size:10.5px">Issue date</span><span style="font-weight:600">{{ today }}</span></div>
+          <div style="display:flex;flex-direction:column;gap:2px"><span style="color:#4A5B75;letter-spacing:.1em;text-transform:uppercase;font-size:10.5px">Credential ID</span><span style="font-weight:600;letter-spacing:.04em">{{ credId }}</span></div>
+          <div style="display:flex;flex-direction:column;gap:2px"><span style="color:#4A5B75;letter-spacing:.1em;text-transform:uppercase;font-size:10.5px">Badge</span><span style="font-weight:600">Silver · Data Analytics</span></div>
+          <div style="display:flex;flex-direction:column;gap:4px"><span style="font-weight:600;border-bottom:1px solid #1F3A5F;padding-bottom:4px;font-size:14px">Bloom Learning Lab</span><span style="color:#4A5B75;letter-spacing:.1em;text-transform:uppercase;font-size:10.5px">Issuing organisation</span></div>
+        </div>
+        <div style="margin-top:22px;display:flex;flex-wrap:wrap;gap:14px;align-items:center;text-align:left">
+          <div style="padding:5px;background:#fff;border:1px solid #D9E1EC;width:82px;height:82px;flex-shrink:0;display:flex;align-items:center;justify-content:center">{{ qrImg }}</div>
+          <div style="display:flex;flex-direction:column;gap:3px;min-width:0;flex:1">
+            <span style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#B08D2E;font-weight:600">{{ verifyCaption }}</span>
+            <a href="{{ verifyUrl }}" target="_blank" rel="noopener" style="font-size:12px;color:#4A5B75;overflow-wrap:anywhere">{{ verifyUrl }}</a>
+            <span style="font-size:11px;color:#4A5B75;text-wrap:pretty">{{ certNote }}</span>
+          </div>
+        </div>
+      </div>
+      <div data-noprint="1" style="max-width:900px;background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:16px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:12px"><span style="font-weight:600;font-size:16px;flex:1;min-width:200px">One last thing — how was it?</span><button onClick="{{ goRate }}" style="min-height:44px;padding:10px 20px;border-radius:8px;border:1px solid #B08D2E;background:transparent;color:#8a6a1a;font-weight:600;font-size:14px;white-space:nowrap;flex-shrink:0" style-hover="background:#F2F4F8">Rate this course</button></div>
+    </sc-if>
+  </sc-if>
+
+  <!-- RATE THIS COURSE -->
+  <sc-if value="{{ s_rate }}">
+    <sc-if value="{{ rateSent }}">
+      <div role="status" style="max-width:820px;background:#fff;border:1px solid #2E8B57;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:8px">
+        <div style="color:#2f5a37;font-weight:600;font-size:18px">Thank you — course 100% complete.</div>
+        <p style="font-size:15px">You rated the course {{ rateStars }} out of 5. {{ rateSentNote }}</p>
+        <button onClick="{{ rateEdit }}" style="align-self:flex-start;padding:6px 12px;border-radius:999px;border:1px solid #B8C3D4;background:transparent;color:#1F3A5F;font-weight:600;font-size:12px;white-space:nowrap">Edit my rating</button>
+      </div>
+    </sc-if>
+    <sc-if value="{{ rateOpen }}">
+      <form onSubmit="{{ rateSubmit }}" style="max-width:820px;background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:22px 24px;display:flex;flex-direction:column;gap:22px">
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div id="rate-label" style="font-weight:600;font-size:17px">Overall, how would you rate this course?</div>
+          <div role="radiogroup" aria-labelledby="rate-label" style="display:flex;gap:6px;align-items:center;flex-wrap:wrap">
+            <sc-for list="{{ stars }}" as="st" hint-placeholder-count="5"><button type="button" role="radio" aria-checked="{{ st.on }}" aria-label="{{ st.label }}" onClick="{{ st.pick }}" style="{{ st.style }}"><svg width="34" height="34" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M239.2 97.4a16.4 16.4 0 0 0-14.2-11l-56.4-4.3-21.6-52.8a16.4 16.4 0 0 0-30 0L95.4 82.1l-56.4 4.3a16.4 16.4 0 0 0-9.2 28.5l42.8 36.8-12.7 54.8a16.4 16.4 0 0 0 24.5 17.9L128 195.1l43.6 29.3a16.4 16.4 0 0 0 24.5-17.9l-12.7-54.8 42.8-36.8a16.4 16.4 0 0 0 5-17.5Z"/></svg></button></sc-for>
+            <span style="margin-left:8px;font-size:14px;color:#4A5B75;min-width:110px">{{ rateHint }}</span>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div id="rate-useful-label" style="font-weight:600;font-size:16px">Which part was most useful?</div>
+          <div role="radiogroup" aria-labelledby="rate-useful-label" style="display:flex;flex-wrap:wrap;gap:8px">
+            <sc-for list="{{ usefulOpts }}" as="u" hint-placeholder-count="5"><button type="button" role="radio" aria-checked="{{ u.on }}" onClick="{{ u.pick }}" style="{{ u.style }}">{{ u.label }}</button></sc-for>
+          </div>
+        </div>
+        <label style="display:flex;flex-direction:column;gap:6px;font-weight:600;font-size:16px">What should we improve or build next?
+          <textarea value="{{ rateText }}" onChange="{{ onRateText }}" rows="4" placeholder="Optional — anything from copy to activities to what was missing." style="padding:12px 14px;border-radius:8px;border:1px solid #B8C3D4;background:#fff;font-weight:400;font-size:15px;color:#1F3A5F;resize:vertical;line-height:1.5"></textarea>
+        </label>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
+          <button type="submit" disabled="{{ rateDisabled }}" style="min-height:44px;padding:10px 20px;border-radius:8px;border:1px solid #1F3A5F;background:#1F3A5F;color:#fff;font-weight:600;font-size:14px" style-hover="background:#16304f">Submit rating</button>
+          <span style="font-size:13px;color:#4A5B75">Your name is included so we can follow up; no other personal data is sent.</span>
+        </div>
+      </form>
+    </sc-if>
+  </sc-if>
+
+  <!-- Key takeaway + nav -->
+  <sc-if value="{{ isLesson }}" hint-placeholder-val="{{ true }}">
+  <div style="max-width:820px;background:#D9E1EC;border-radius:8px;padding:14px 20px;display:flex;flex-direction:column;gap:4px">
+    <div style="font-size:12px;color:#B08D2E;font-weight:600;letter-spacing:.08em;text-transform:uppercase">Key takeaway</div>
+    <p style="font-size:15px;text-wrap:pretty">{{ curTakeaway }}</p>
+  </div>
+  </sc-if>
+  <div data-noprint="1" style="max-width:820px;display:flex;flex-wrap:wrap;gap:10px;align-items:center">
+    <sc-if value="{{ hasPrev }}"><button onClick="{{ prev }}" style="min-height:44px;padding:10px 16px;border-radius:8px;border:1px solid #B8C3D4;background:transparent;color:#1F3A5F;font-weight:600;font-size:14px" style-hover="background:#fff">Back</button></sc-if>
+    <div style="flex:1"></div>
+    <sc-if value="{{ curDone }}"><span style="font-size:13px;color:#2f5a37;font-weight:600">Completed</span></sc-if>
+    <sc-if value="{{ hasNext }}"><button onClick="{{ next }}" style="{{ nextStyle }}" style-hover="opacity:.92">{{ nextLabel }}</button></sc-if>
+  </div>
+  <sc-if value="{{ checkPending }}"><p data-noprint="1" aria-live="polite" style="max-width:820px;margin-top:-16px;font-size:13px;color:#4A5B75">{{ checkHint }}</p></sc-if>
+
+  <div style="max-width:960px;margin-top:auto;padding-top:20px;border-top:1px solid #D9E1EC;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 16px;font-size:13px;color:#4A5B75"><span>Using data to direct school improvement</span><span>BPLF-MC-DATA-01 v1.3</span></div>
+  </main>
+</div>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+const KEY = 'bloom-lab-02-v1';
+const MODS = [
+  { title: 'Purpose', mins: '3 min' }, { title: 'Reading the survey', mins: '6 min' }, { title: 'Action report → scorecard', mins: '10 min' }, { title: 'Review over time', mins: '6 min' }, { title: 'Apply & complete', mins: '5 min' }
+];
+const LESSONS = [
+  { id: 'welcome', mod: 1, mins: 2, title: 'Why balanced scorecards help school leaders', intro: 'Data is collected in most schools. The scorecard makes sure it directs a decision, an action and a review.', takeaway: 'A balanced scorecard keeps a small number of priorities visible and linked to evidence, owners and movement over time.' },
+  { id: 'pathway', mod: 1, mins: 1, title: 'The improvement pathway', intro: 'Four stages, each with one leadership question: what decision does this evidence help us make?', takeaway: 'The survey diagnoses. The action plan specifies the response. The scorecard holds the improvement story over time.' },
+  { id: 'baseline', mod: 2, mins: 2, title: 'Example baseline: survey results become leadership data', intro: 'School A’s six AFFIRM scores, read strengths-first.', takeaway: 'Read strengths first, priorities next, and keep the conversation developmental — not punitive.' },
+  { id: 'stages', mod: 2, mins: 2, title: 'The four stages are progression stages, not grades', intro: 'Aspiring, Emerging, Developing, Impacting — and the rule that a number without a warrant is an opinion.', takeaway: 'A score band gives a starting position, never a final judgement.' },
+  { id: 'priorities', mod: 2, mins: 2, title: 'Step 1: turn the survey into priorities', intro: 'Name strengths, find the lowest leverage area, choose a focus leadership can influence this term.', takeaway: 'The survey reports Management & Monitoring lowest at 2.67; that it is a system lever is an inference to be tested through action.' },
+  { id: 'actionreport', mod: 3, mins: 2, title: 'Step 2: translate the action report into scorecard fields', intro: 'Objective, key activities, owner and timeline, evidence.', takeaway: 'From “we had a meeting” to “the meeting produced decisions, actions, follow-up dates and evidence of impact.”' },
+  { id: 'activity', mod: 3, mins: 2, title: 'Activity is not impact: four different things', intro: 'Activity, implementation evidence, outcome evidence and indicator are not interchangeable.', takeaway: 'Minutes prove a meeting happened. Only outcome evidence and a moving indicator justify a claim of improvement.' },
+  { id: 'entry', mod: 3, mins: 2, title: 'Step 3: build a scorecard entry', intro: 'One complete line for Management & Monitoring at School A.', takeaway: 'The scorecard makes each action visible enough to review — not merely listed.' },
+  { id: 'hypothesis', mod: 3, mins: 2, title: 'Step 4: write the improvement hypothesis', intro: 'If… then… because… — a data finding becomes a testable leadership claim.', takeaway: 'Next term, leaders ask: did the action happen? Did it help? What should change?' },
+  { id: 'triangle', mod: 3, mins: 2, title: 'Step 5: use the Evidence Triangle', intro: 'Voice, Artefact and Observation — what each looks like at School A.', takeaway: 'At least two sources for any judgement; no Impacting claim without all three — Voice, Artefact and Observation.' },
+  { id: 'pillars', mod: 4, mins: 1, title: 'Balanced means more than academic scores', intro: 'Five pillars; two of them have no evidence source this cycle.', takeaway: 'A pillar with no evidence carries no score. Do not infer what the data did not measure.' },
+  { id: 'cycle', mod: 4, mins: 2, title: 'Termly review cycle: recording movement over time', intro: 'Baseline, Term 1, Term 2, Term 3 — and the five questions every review asks.', takeaway: 'Term 1 records implementation evidence; movement and impact claims come later and only when warranted.' },
+  { id: 'illustration', mod: 4, mins: 1, title: 'Worked illustration: recording movement without exaggeration', intro: 'An illustrative trajectory — and why School A cannot claim it yet.', takeaway: 'A movement claim is only as strong as the Evidence Triangle and the warrant behind it.' },
+  { id: 'questions', mod: 4, mins: 2, title: 'The principal’s termly review questions', intro: 'Six questions that turn a scorecard into a leadership conversation.', takeaway: 'The balanced scorecard is useful only if it changes leadership conversation.' },
+  { id: 'task', mod: 5, mins: 5, title: 'Your task: build one scorecard line — Intervention (2.83)', intro: 'Five protected minutes, working alone. Complete every field.', takeaway: 'A complete line names priority, baseline, objective, owner, implementation evidence, impact evidence and hypothesis.' },
+  { id: 'ethics', mod: 5, mins: 1, title: 'Ethical use: the scorecard is for coaching, not surveillance', intro: 'Scores firewall, do no harm, leadership discipline.', takeaway: 'The goal is not to raise the score but to improve practice and outcomes — scores move only when evidence warrants movement.' },
+  { id: 'quiz', mod: 5, mins: 2, title: 'Knowledge check', intro: 'Four questions. One attempt each — reveal to learn from the answer.', takeaway: 'A warrant turns a score from opinion into evidence.' },
+  { id: 'capstone', mod: 5, mins: 1, title: 'Capstone: your 30-day leadership action', intro: 'Choose one, write one, track one — then commit.', takeaway: 'Use data to direct improvement — not to decorate reports.' },
+  { id: 'cert', mod: 5, mins: 1, title: 'Completion and next steps', intro: 'Your record of completing the micro-course, and the 45-minute leadership team session that follows.', takeaway: 'Next: run a 45-minute team session on your own data — name strengths, select priority, write hypothesis, agree evidence, set review date.' }
+];
+const AREAS = [
+  { area: 'Assessment Quality', score: '3.60', c: 'S' }, { area: 'Technical Practice', score: '3.25', c: 'S' }, { area: 'Feedback', score: '3.00', c: 'N' },
+  { area: 'Reward & Recognition', score: '3.00', c: 'N' }, { area: 'Intervention', score: '2.83', c: 'P' }, { area: 'Management & Monitoring', score: '2.67', c: 'P' }
+];
+const STAGE_Q = [
+  { text: 'Feedback routines run in a few departments, in some weeks, depending on who is teaching.', c: 1 },
+  { text: 'Assessment practice is embedded across the school and is demonstrably changing student outcomes.', c: 3 },
+  { text: 'Monitoring is consistent across most of the school and is improving against a plan.', c: 2 },
+  { text: 'Leadership knows what good intervention looks like but has not started building it.', c: 0 }
+];
+const STAGES = ['Aspiring', 'Emerging', 'Developing', 'Impacting'];
+const FI = [
+  { text: 'Management & Monitoring is School A’s lowest area at 2.67.', c: 'F', why: 'The survey reports it directly.' },
+  { text: 'Improving monitoring will make feedback and intervention easier to track.', c: 'I', why: 'A leadership inference — to be tested through action.' },
+  { text: 'Assessment Quality scored 3.60 (3.64 in the updated action report).', c: 'F', why: 'A recorded score; the scorecard uses the harmonised 3.60.' }
+];
+const CLASS_Q = [
+  { text: 'Monthly assessment-review meetings', c: 0 }, { text: 'Minutes and the action tracker', c: 1 },
+  { text: 'Decisions followed up and revisited', c: 2 }, { text: '% of agreed actions completed by the next review', c: 3 }
+];
+const CLASS_LABELS = ['Activity', 'Implementation', 'Outcome', 'Indicator'];
+const MISSING = [
+  { label: 'An owner, a review date and any evidence of impact — attendance only proves the workshop happened.', ok: true },
+  { label: 'Nothing — it has a priority, baseline, action and evidence.', ok: false },
+  { label: 'A higher target score for Feedback.', ok: false }
+];
+const HYP = [
+  { label: 'If we improve monitoring, then the school will get better, because monitoring matters.', ok: false, why: 'No measure, no date — nothing a Term 1 review could check.' },
+  { label: 'If we schedule monthly assessment-review meetings and record decisions, owners and follow-up dates, then by the Term 1 review at least 90% of agreed actions are completed and revisited, because written, owned decisions get done.', ok: true, why: 'Measurable, dated and reasoned — a Term 1 review can test it.' },
+  { label: 'If we raise Management & Monitoring to 3.0 by Term 1, then the scorecard will show progress, because the score will be higher.', ok: false, why: 'This chases the score. Scores move only when evidence warrants movement.' }
+];
+const TRI = [
+  { text: 'Developing claimed for Feedback, supported by marked samples (Artefact) and a lesson walk (Observation).', c: 'Y', why: 'Two sources — enough for a Developing judgement.' },
+  { text: 'Impacting claimed for Assessment Quality, supported by rubrics and minutes (Artefact) and student survey comments (Voice).', c: 'N', why: 'No Impacting claim without all three — Observation is missing.' },
+  { text: 'Developing claimed for Intervention, supported by the intervention register alone.', c: 'N', why: 'At least two sources for any judgement.' }
+];
+const PILLAR = [
+  { label: 'Leave the pillar unscored and record “awaiting evidence source”.', ok: true },
+  { label: 'Estimate a score from the other pillars so the scorecard looks complete.', ok: false },
+  { label: 'Give it the school mean, 3.06, as a placeholder.', ok: false }
+];
+const TERM = [
+  { text: 'Meeting minutes and an action tracker showing decisions were logged', c: 0 },
+  { text: 'A second data point showing more agreed actions completed than last term', c: 1 },
+  { text: 'An impact claim, or a decision to revise the hypothesis', c: 2 }
+];
+const TERM_LABELS = ['Term 1', 'Term 2', 'Term 3'];
+const CLAIM = [
+  { label: 'Management & Monitoring has moved from 2.67 to 3.15.', ok: false, why: 'The trajectory is illustrative — no review has yet been recorded.' },
+  { label: 'Management & Monitoring baseline is 2.67; the first review is Term 1.', ok: true, why: 'This is what the evidence supports today.' },
+  { label: 'Management & Monitoring is on track to reach Impacting by Term 3.', ok: false, why: 'A forecast, not a warranted judgement.' }
+];
+const QTEXT = ['What did the data tell us?', 'What did we decide to prioritise?', 'Did the planned action happen?', 'What evidence warrants the current score?', 'What changed for learners or teacher practice?', 'What should we stop, continue, adapt or scale?'];
+const ETH = [
+  { text: 'Publishing every department’s scores on the staffroom wall, ranked.', c: 'S', why: 'League form. Scores are held by the school and used for coaching.' },
+  { text: 'Using the Intervention baseline to decide where Heads of Department get extra support this term.', c: 'C', why: 'Focused support — the purpose of the scorecard.' },
+  { text: 'Setting a target of 3.0 for every area by the end of the year.', c: 'S', why: 'A score is a starting point, never a target.' }
+];
+const QUIZ = [
+  { q: 'Which survey area has the lowest baseline score at School A?', opts: ['Intervention', 'Management & Monitoring', 'Feedback', 'Reward & Recognition'], ans: 1, why: 'Management & Monitoring, 2.67.' },
+  { q: 'What is the purpose of a warrant?', opts: ['To set the target score for next term', 'To rank schools consistently', 'It turns a score from opinion into evidence', 'To record who owns the action'], ans: 2, why: 'A number without a warrant is an opinion.' },
+  { q: 'Which three sources form the Evidence Triangle?', opts: ['Survey, Interview, Test', 'Voice, Artefact, Observation', 'Activity, Outcome, Indicator', 'Baseline, Term 1, Term 3'], ans: 1, why: 'Voice, Artefact, Observation — all three for any Impacting claim.' },
+  { q: 'What is the difference between implementation evidence and impact evidence?', opts: ['Implementation is quantitative; impact is qualitative', 'Implementation shows it happened; impact shows it made a difference', 'Implementation is collected by teachers; impact by leaders', 'There is no difference'], ans: 1, why: 'Implementation shows it happened; impact shows it made a difference.' }
+];
+const PATH = ['Assessment Survey', 'Action Report', 'Balanced Scorecard', 'Termly Review'];
+const OBJ = {
+  welcome: 'explain, in one sentence, what a balanced scorecard adds that a data report does not.', pathway: 'name the four stages and the leadership question that runs through them.', baseline: 'read a six-area survey strengths-first and name two priorities.',
+  stages: 'place a description at the right progression stage and say why a score alone is not a judgement.', priorities: 'separate what the survey reports from what leadership infers.', actionreport: 'rewrite an activity statement as a decision with owner, date and evidence.',
+  activity: 'tell activity, implementation evidence, outcome evidence and indicator apart.', entry: 'spot the missing fields in an incomplete scorecard line.', hypothesis: 'recognise a hypothesis that a Term 1 review can actually test.',
+  triangle: 'judge whether a stage claim is warranted by enough evidence sources.', pillars: 'decline to score a pillar the data did not measure.', cycle: 'match each term of the review cycle to the evidence it should record.',
+  illustration: 'state what School A can and cannot claim today.', questions: 'choose the review question your own meetings most often miss.', task: 'produce a complete scorecard line for Intervention (2.83).',
+  ethics: 'distinguish coaching uses of a scorecard from surveillance uses.', quiz: 'check your recall of the four ideas the course rests on.', capstone: 'commit to one focus area and the reason it unlocks wider progress.'
+};
+const RECAP = {
+  2: 'The scorecard turns collected data into a decision, an action and a review — four stages, one question: what decision does this evidence help us make?',
+  3: 'Read strengths first, then priorities. Stages are progression bands, not grades, and a score without a warrant is an opinion.',
+  4: 'A scorecard line names objective, owner, evidence and a testable hypothesis; activity is not impact, and every judgement needs two evidence sources.',
+  5: 'Only score what was measured, record movement term by term, and let the six review questions change the leadership conversation.'
+};
+const QUIZ_LINK = [['baseline'], ['stages'], ['triangle'], ['activity']];
+const PATH_SHUF = ['Balanced Scorecard', 'Assessment Survey', 'Termly Review', 'Action Report'];
+
+class Component extends DCLogic {
+  state = { screen: 'landing', name: '', nameDraft: '', openingNote: '', rewriteNote: '', completed: {}, order: [], orderMiss: false, sort: {}, stage: {}, fi: {}, cls: {}, missing: null, hyp: null, tri: {}, pillar: null, term: {}, claim: null, qpick: null, eth: {}, quiz: {}, task: {}, commitFocus: '', commitBecause: '', credId: '', credDate: '', rating: { stars: 0, useful: '', text: '', sent: false, synced: false }, narrow: false, menuOpen: false };
+  async issueCredential() {
+    if (this._issuing || this.state.credId) return;
+    this._issuing = true;
+    const s = this.state; const date = new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+    let id = '';
+    try {
+      const ctl = new AbortController(); const t = setTimeout(() => ctl.abort(), 6000);
+      const r = await fetch('/api/issue', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ name: s.name, date, commitment: 'I will use the scorecard to focus on ' + s.commitFocus + ' because ' + s.commitBecause, quizScore: Object.values(s.quiz).filter((q, i) => q.revealed && q.pick === QUIZ[i].ans).length }), signal: ctl.signal });
+      clearTimeout(t);
+      if (r.ok) { const j = await r.json(); if (j && j.id) id = j.id; }
+    } catch (e) {}
+    if (!id) { let n = 1; try { n = (parseInt(localStorage.getItem(KEY + '-seq'), 10) || 0) + 1; localStorage.setItem(KEY + '-seq', String(n)); } catch (e) {} id = 'BLL02-L' + String(n).padStart(4, '0'); }
+    this._issuing = false; this.setState({ credId: id, credDate: date });
+  }
+  printCert() {
+    if (this._printing) return; this._printing = true;
+    const root = document.querySelector('[data-printroot]');
+    const done = () => { document.body.classList.remove('printing-cert'); this._printing = false; window.removeEventListener('afterprint', done); };
+    window.addEventListener('afterprint', done);
+    document.body.classList.add('printing-cert');
+    const img = root && root.querySelector('img');
+    const fire = () => { try { window.print(); } catch (e) {} setTimeout(done, 1500); };
+    if (img && !img.complete) { const t = setTimeout(fire, 2500); img.onload = img.onerror = () => { clearTimeout(t); fire(); }; } else setTimeout(fire, 50);
+  }
+  async downloadBadge() {
+    if (this.state.badgeBusy) return;
+    this.setState({ badgeBusy: true });
+    try {
+      const s = this.state; const W = 1200, H = 1200;
+      const c = document.createElement('canvas'); c.width = W; c.height = H; const x = c.getContext('2d');
+      x.fillStyle = '#F2F4F8'; x.fillRect(0, 0, W, H);
+      x.fillStyle = '#1F3A5F'; x.fillRect(0, 0, W, 18);
+      const badge = await new Promise((ok, err) => { const i = new Image(); i.onload = () => ok(i); i.onerror = err; i.src = 'assets/badge-silver.png'; });
+      const bs = 620; x.drawImage(badge, (W - bs) / 2, 110, bs, bs);
+      x.textAlign = 'center'; x.fillStyle = '#B08D2E'; x.font = '600 26px "IBM Plex Sans", system-ui, sans-serif';
+      x.fillText('AWARDED TO', W / 2, 800);
+      x.fillStyle = '#1F3A5F'; let fs = 64; x.font = '700 ' + fs + 'px "IBM Plex Sans", system-ui, sans-serif';
+      while (x.measureText(s.name).width > W - 160 && fs > 30) { fs -= 4; x.font = '700 ' + fs + 'px "IBM Plex Sans", system-ui, sans-serif'; }
+      x.fillText(s.name, W / 2, 870);
+      x.fillStyle = '#4A5B75'; x.font = '500 30px "IBM Plex Sans", system-ui, sans-serif';
+      x.fillText('Using Data to Direct School Improvement', W / 2, 930);
+      x.font = '400 24px "IBM Plex Sans", system-ui, sans-serif';
+      x.fillText('Bloom Learning Lab 02 · ' + (s.credDate || '') + ' · ' + (s.credId || ''), W / 2, 975);
+      x.fillStyle = '#9AA7BA'; x.font = '400 20px "IBM Plex Sans", system-ui, sans-serif';
+      x.fillText(location.origin + '/verify?id=' + (s.credId || ''), W / 2, 1120);
+      const blob = await new Promise(ok => c.toBlob(ok, 'image/png'));
+      const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'Bloom-Data-Analytics-Badge-' + (s.credId || 'badge') + '.png'; document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+    } catch (e) { alert('Could not build the badge image. Try again or take a screenshot of the badge on the certificate.'); }
+    this.setState({ badgeBusy: false });
+  }
+  async submitRating(e) {
+    if (e) e.preventDefault();
+    const r = this.state.rating; if (!r.stars) return;
+    let synced = false;
+    try { const body = new URLSearchParams({ 'form-name': 'course-rating', name: this.state.name, stars: String(r.stars), useful: r.useful, text: r.text, credId: this.state.credId, course: 'BPLF-MC-DATA-01 v1.3' }); const res = await fetch('/', { method: 'POST', headers: { 'content-type': 'application/x-www-form-urlencoded' }, body: body.toString() }); synced = res.ok; } catch (e) {}
+    this.setState(st => ({ rating: { ...st.rating, sent: true, synced } }));
+    window.scrollTo(0, 0);
+  }
+  componentDidMount() {
+    try { const s = JSON.parse(localStorage.getItem(KEY)); if (s && typeof s === 'object') this.setState(s); } catch (e) {}
+    this.onResize = () => { const n = window.innerWidth < 880; if (n !== this.state.narrow) this.setState({ narrow: n, menuOpen: false }); };
+    this.onResize(); window.addEventListener('resize', this.onResize);
+  }
+  componentWillUnmount() { window.removeEventListener('resize', this.onResize); }
+  componentDidUpdate() {
+    const { narrow, menuOpen, nameDraft, badgeBusy, ...rest } = this.state;
+    try { localStorage.setItem(KEY, JSON.stringify(rest)); } catch (e) {}
+  }
+  go(screen) { this.setState({ screen, menuOpen: false }); window.scrollTo(0, 0); }
+  markDone(id) { this.setState(s => ({ completed: { ...s.completed, [id]: true } })); }
+  patch(k, i, v) { this.setState(s => ({ [k]: { ...s[k], [i]: v } })); }
+  renderVals() {
+    const s = this.state;
+    const idx = LESSONS.findIndex(l => l.id === s.screen);
+    const cur = idx >= 0 ? LESSONS[idx] : LESSONS[LESSONS.length - 1];
+    const completedCount = LESSONS.filter(l => s.completed[l.id]).length;
+    const rated = !!(s.rating && s.rating.sent);
+    const progressPct = Math.min(100, Math.round((completedCount + (rated ? 1 : 0)) / (LESSONS.length + 1) * 100));
+    const flags = {}; LESSONS.forEach(l => { flags['s_' + l.id] = s.screen === l.id; });
+    const pillBase = 'padding:6px 12px;border-radius:999px;border:1px solid;font-size:13px;font-weight:600;white-space:nowrap;flex-shrink:0;';
+    const pill = (state) => pillBase + (state === 'on' ? 'background:#1F3A5F;border-color:#1F3A5F;color:#fff' : state === 'ok' ? 'background:rgba(46,139,87,.15);border-color:#2E8B57;color:#2f5a37' : state === 'bad' ? 'background:transparent;border-color:#B0493A;color:#8a2f22;text-decoration:line-through' : state === 'dim' ? 'background:transparent;border-color:#D9E1EC;color:#9AA7BA' : 'background:transparent;border-color:#B8C3D4;color:#1F3A5F');
+    const card = (picked, ok) => 'display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:12px 14px;border-radius:8px;background:#F2F4F8;border:1px solid ' + (!picked ? '#D9E1EC' : ok ? '#2E8B57' : '#B0493A');
+    const fb = ok => 'font-size:13px;flex-basis:100%;color:' + (ok ? '#2f5a37' : '#8a2f22');
+    const optBtn = (picked, isPick, isAns) => { let st = 'idle'; if (picked !== null && picked !== undefined) st = isAns ? 'ok' : isPick ? 'bad' : 'dim'; return pill(st); };
+    // MCQ helpers (single pick, list of {label, ok, why})
+    const mcq = (key, list, feedbackOk, feedbackBad) => {
+      const picked = s[key]; const ans = list.findIndex(o => o.ok);
+      return {
+        opts: list.map((o, i) => ({ label: o.label, pick: () => { if (picked === null || picked === undefined) this.setState({ [key]: i }); }, style: 'text-align:left;width:100%;padding:10px 14px;border-radius:8px;font-size:15px;line-height:1.4;' + optBtn(picked, picked === i, i === ans).replace(/border-radius:999px;/, '').replace(/font-size:13px;/, '') })),
+        picked: picked !== null && picked !== undefined,
+        fbStyle: 'font-size:14px;font-weight:600;color:' + (picked === ans ? '#2f5a37' : '#8a2f22'),
+        feedback: picked === ans ? (feedbackOk || (list[ans] && list[ans].why) || 'Correct.') : (feedbackBad || ('Not quite — ' + ((list[picked] && list[picked].why) || '') + ' The defensible option: ' + (list[ans] && list[ans].label)))
+      };
+    };
+    // Classification helpers (per item, N options)
+    const classify = (key, items, labels, whyFn) => items.map((it, i) => {
+      const picked = s[key][i]; const has = picked !== undefined && picked !== null; const ok = has && picked === it.c;
+      return {
+        text: it.text, picked: has, cardStyle: card(has, ok), fbStyle: fb(ok),
+        feedback: has ? (ok ? 'Correct — ' : 'Not quite — this is ' + labels[it.c] + '. ') + (whyFn ? whyFn(it, i) : '') : '',
+        opts: labels.map((lab, oi) => ({ label: lab, pick: () => { if (!has) this.patch(key, i, oi); }, style: optBtn(has ? picked : null, picked === oi, oi === it.c) }))
+      };
+    });
+    // Binary helpers
+    const binary = (key, items, aKey, bKey) => items.map((it, i) => {
+      const picked = s[key][i]; const has = !!picked; const ok = has && picked === it.c;
+      const st = (k) => optBtn(has ? picked : null, picked === k, k === it.c);
+      return { text: it.text, picked: has, cardStyle: card(has, ok), fbStyle: fb(ok), feedback: has ? (ok ? 'Correct — ' : 'Not quite — ') + it.why : '', a: st(aKey), b: st(bKey), pickA: () => { if (!has) this.patch(key, i, aKey); }, pickB: () => { if (!has) this.patch(key, i, bKey); } };
+    });
+    const modules = MODS.map((m, mi) => ({
+      n: mi + 1, title: m.title, mins: m.mins,
+      lessons: LESSONS.filter(l => l.mod === mi + 1).map(l => {
+        const active = s.screen === l.id, done = !!s.completed[l.id];
+        return { title: l.title, done, current: active ? 'page' : undefined, go: () => this.go(l.id),
+          style: 'display:flex;align-items:center;gap:10px;width:100%;text-align:left;padding:8px 10px;border:0;border-radius:8px;font-size:13.5px;line-height:1.35;' + (active ? 'background:#D9E1EC;color:#1F3A5F;font-weight:600' : 'background:transparent;color:#1F3A5F'),
+          dotStyle: 'width:18px;height:18px;border-radius:50%;flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;' + (done ? 'background:#2E8B57;color:#fff' : active ? 'border:2px solid #B08D2E' : 'border:1.5px solid #B8C3D4') };
+      })
+    }));
+    // pathway ordering
+    const orderDone = s.order.length === 4;
+    const orderOpts = PATH_SHUF.map(lab => { const used = s.order.includes(lab); return { label: lab, used, style: pill(used ? 'dim' : 'idle') + ';min-height:40px', pick: () => this.setState(p => { const expected = PATH[p.order.length]; return lab === expected ? { order: [...p.order, lab], orderMiss: false } : { order: [], orderMiss: true }; }) }; });
+    const orderSlots = PATH.map((L, i) => { const got = s.order[i]; return { label: got || (i + 1), style: 'min-width:44px;height:40px;padding:0 12px;border-radius:8px;display:inline-flex;align-items:center;justify-content:center;font-weight:600;font-size:14px;' + (got ? 'background:#1F3A5F;color:#fff' : 'border:1.5px dashed #B8C3D4;color:#9AA7BA') }; });
+    // sort strengths/priorities
+    const sortItems = AREAS.map((a, i) => { const picked = s.sort[i]; const has = !!picked; const ok = has && picked === a.c; const st = k => optBtn(has ? picked : null, picked === k, k === a.c);
+      return { area: a.area, score: a.score, picked: has, cardStyle: card(has, ok), fbStyle: fb(ok), feedback: has ? (ok ? 'Yes.' : 'The scorecard reads this as ' + ({ S: 'a strength', N: 'neither', P: 'a priority' })[a.c] + '.') : '', sStyle: st('S'), nStyle: st('N'), pStyle: st('P'), pickS: () => { if (!has) this.patch('sort', i, 'S'); }, pickN: () => { if (!has) this.patch('sort', i, 'N'); }, pickP: () => { if (!has) this.patch('sort', i, 'P'); } }; });
+    const sortAllDone = AREAS.every((a, i) => s.sort[i]);
+    const sortRight = AREAS.filter((a, i) => s.sort[i] === a.c).length;
+    const fiItems = binary('fi', FI, 'F', 'I').map(x => ({ ...x, fStyle: x.a, iStyle: x.b, pickF: x.pickA, pickI: x.pickB }));
+    const triItems = binary('tri', TRI, 'Y', 'N').map(x => ({ ...x, yStyle: x.a, nStyle: x.b, pickY: x.pickA, pickN: x.pickB }));
+    const ethItems = binary('eth', ETH, 'C', 'S').map(x => ({ ...x, cStyle: x.a, sStyle: x.b, pickC: x.pickA, pickS: x.pickB }));
+    const missing = mcq('missing', MISSING, 'Right. Attendance is implementation evidence at best; the line still needs an owner, a review date and impact evidence.', 'Not quite. Attendance only proves the workshop happened. The line needs an owner, a review date and evidence of impact.');
+    const hyp = mcq('hyp', HYP);
+    const pillar = mcq('pillar', PILLAR, 'Correct. A pillar with no evidence carries no score.', 'Not quite. A pillar with no evidence carries no score — do not infer what the data did not measure.');
+    const claim = mcq('claim', CLAIM);
+    const qPickOpts = QTEXT.map((t, i) => ({ label: (i + 1) + ' · ' + t, on: s.qpick === i, pick: () => this.setState({ qpick: i }), style: pill(s.qpick === i ? 'on' : 'idle') + ';text-align:left;white-space:normal' }));
+    // quiz
+    let quizScore = 0, quizRevealedCount = 0;
+    const quizItems = QUIZ.map((q, i) => {
+      const st = s.quiz[i] || {}; const picked = st.pick; const revealed = !!st.revealed; const ok = picked === q.ans;
+      if (revealed) { quizRevealedCount++; if (ok) quizScore++; }
+      return { n: i + 1, q: q.q, revealed, notRevealed: !revealed, noPick: picked === undefined, why: q.why,
+        resultLabel: ok ? 'Correct.' : 'Not quite — the answer is ' + 'ABCD'[q.ans] + '.',
+        resultStyle: 'padding:10px 14px;border-radius:8px;font-size:14px;flex:1;' + (ok ? 'background:rgba(46,139,87,.15);color:#2f5a37' : 'background:rgba(176,141,46,.18);color:#5a4310'),
+        reveal: () => this.patch('quiz', i, { ...st, revealed: true }),
+        opts: q.opts.map((t, oi) => { const on = picked === oi; let bg = '#fff', bd = '#B8C3D4', col = '#1F3A5F';
+          if (on && !revealed) { bg = '#D9E1EC'; bd = '#1F3A5F'; } if (revealed && oi === q.ans) { bg = 'rgba(46,139,87,.15)'; bd = '#2E8B57'; col = '#2f5a37'; } if (revealed && on && oi !== q.ans) { bd = '#B0493A'; col = '#8a2f22'; }
+          return { letter: 'ABCD'[oi], text: t, on, pick: () => { if (!revealed) this.patch('quiz', i, { ...st, pick: oi }); }, style: 'display:flex;gap:10px;align-items:flex-start;text-align:left;width:100%;padding:10px 14px;border-radius:8px;border:1px solid ' + bd + ';background:' + bg + ';color:' + col + ';font-size:15px;line-height:1.4' }; })
+      };
+    });
+    const t = s.task || {};
+    const taskFilled = ['objective', 'owner', 'impl', 'impact', 'hyp'].filter(k => (t[k] || '').trim().length >= 8).length;
+    const commitOk = s.commitFocus.trim().length > 1 && s.commitBecause.trim().length > 1;
+    const req = ok => 'width:24px;height:24px;border-radius:50%;flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;' + (ok ? 'background:#2E8B57;color:#fff' : 'border:1.5px solid #B8C3D4;color:#4A5B75');
+    const allLessons = LESSONS.filter(l => l.id !== 'cert').every(l => s.completed[l.id]);
+    const certReady = allLessons && taskFilled === 5 && quizRevealedCount === 4 && commitOk;
+    if (certReady && !s.credId && s.screen === 'cert') setTimeout(() => this.issueCredential(), 0);
+    if (certReady && s.screen === 'cert' && !s.completed.cert) setTimeout(() => this.markDone('cert'), 0);
+    const local = !s.credId || /-L\d+$/.test(s.credId);
+    const verifyUrl = location.origin + '/verify?id=' + encodeURIComponent(s.credId || 'BLL02-PENDING');
+    const isRate = s.screen === 'rate';
+    const hasNext = idx >= 0 && idx < LESSONS.length - 1;
+    const has = v => v !== null && v !== undefined;
+    const tDraft = s.task || {};
+    const CHECKS = {
+      pathway: () => s.order.length === 4, baseline: () => AREAS.every((a, i) => s.sort[i]), stages: () => STAGE_Q.every((q, i) => has(s.stage[i])), priorities: () => FI.every((q, i) => s.fi[i]),
+      actionreport: () => (s.rewriteNote || '').trim().length >= 12, activity: () => CLASS_Q.every((q, i) => has(s.cls[i])), entry: () => has(s.missing), hypothesis: () => has(s.hyp), triangle: () => TRI.every((q, i) => s.tri[i]),
+      pillars: () => has(s.pillar), cycle: () => TERM.every((q, i) => has(s.term[i])), illustration: () => has(s.claim), questions: () => has(s.qpick),
+      task: () => ['objective', 'owner', 'impl', 'impact', 'hyp'].every(k => (tDraft[k] || '').trim().length >= 8), ethics: () => ETH.every((q, i) => s.eth[i]), quiz: () => QUIZ.every((q, i) => s.quiz[i] && s.quiz[i].revealed),
+      capstone: () => s.commitFocus.trim().length > 1 && s.commitBecause.trim().length > 1
+    };
+    const checkDone = isRate ? true : (CHECKS[cur.id] ? CHECKS[cur.id]() : true);
+    const CHECK_HINT = { actionreport: 'Write your rewritten action-plan line (a sentence or two) to mark this lesson complete.', task: 'Complete all five fields of the scorecard line to mark this lesson complete.', quiz: 'Answer and reveal all four questions to mark this lesson complete.', capstone: 'Fill in both parts of your 30-day commitment to mark this lesson complete.', questions: 'Pick the review question most often missing from your meetings.' };
+    const r = s.rating || { stars: 0, useful: '', text: '' };
+    const USEFUL = ['Reading strengths first', 'Activity vs impact', 'Building the scorecard line', 'The hypothesis', 'Evidence Triangle', 'Review questions'];
+    const stars = [1, 2, 3, 4, 5].map(n => ({ on: r.stars === n, label: n + ' star' + (n > 1 ? 's' : ''), pick: () => this.setState(st => ({ rating: { ...st.rating, stars: n } })), style: 'width:44px;height:44px;border:0;background:transparent;padding:0;display:inline-flex;align-items:center;justify-content:center;color:' + (n <= r.stars ? '#B08D2E' : '#D9E1EC') }));
+    const usefulOpts = USEFUL.map(u => ({ label: u, on: r.useful === u, pick: () => this.setState(st => ({ rating: { ...st.rating, useful: u } })), style: pill(r.useful === u ? 'on' : 'idle') }));
+    const sidebarStyle = s.narrow
+      ? 'position:fixed;top:0;bottom:0;left:0;width:min(300px,85vw);z-index:9;background:#fff;padding:16px 12px;overflow-y:auto;-webkit-overflow-scrolling:touch;display:flex;flex-direction:column;gap:12px;box-shadow:0 0 30px rgba(31,58,95,.2)'
+      : 'width:270px;flex-shrink:0;position:sticky;top:64px;align-self:flex-start;max-height:calc(100vh - 64px);overflow-y:auto;padding:20px 12px;display:flex;flex-direction:column;gap:12px;border-right:1px solid #D9E1EC';
+    return {
+      ...flags, isLanding: s.screen === 'landing', inCourse: s.screen !== 'landing',
+      name: s.name, hasName: !!s.name, noName: !s.name, nameDraft: s.nameDraft,
+      onNameDraft: e => this.setState({ nameDraft: e.target.value }), onNameKey: e => { if (e.key === 'Enter' && s.nameDraft.trim()) { this.setState({ name: s.nameDraft.trim() }); this.go('welcome'); } },
+      startDisabled: !s.nameDraft.trim(), startCourse: () => { this.setState({ name: s.nameDraft.trim() }); this.go('welcome'); },
+      resume: () => { const nxt = LESSONS.find(l => !s.completed[l.id]); this.go(nxt ? nxt.id : 'cert'); }, resumeLabel: completedCount ? 'Continue the course' : 'Start the course',
+      resetAll: () => { if (confirm('Clear your name, notes and progress on this device?')) { try { localStorage.removeItem(KEY); } catch (e) {} this.setState({ screen: 'landing', name: '', nameDraft: '', openingNote: '', rewriteNote: '', completed: {}, order: [], orderMiss: false, sort: {}, stage: {}, fi: {}, cls: {}, missing: null, hyp: null, tri: {}, pillar: null, term: {}, claim: null, qpick: null, eth: {}, quiz: {}, task: {}, commitFocus: '', commitBecause: '', credId: '', credDate: '', rating: { stars: 0, useful: '', text: '', sent: false, synced: false } }); } },
+      completedCount, lessonCount: LESSONS.length, progressPct, progressBarStyle: 'height:100%;width:' + progressPct + '%;background:#B08D2E;border-radius:999px',
+      narrow: s.narrow, showSidebar: !s.narrow || s.menuOpen, showScrim: s.narrow && s.menuOpen, toggleMenu: () => this.setState({ menuOpen: !s.menuOpen }), sidebarStyle, goLanding: () => this.go('landing'),
+      modules, isLesson: !isRate, s_rate: isRate,
+      curKicker: isRate ? 'Feedback' : 'Module ' + cur.mod + ' · ' + MODS[cur.mod - 1].title, curMeta: isRate ? 'Two minutes' : 'Lesson ' + (idx + 1) + ' of ' + LESSONS.length + ' · ' + cur.mins + ' min',
+      curTitle: isRate ? 'Rate this course' : cur.title, curIntro: isRate ? 'Your rating and comments go to Bloom Learning Lab and shape the next Learning Lab.' : cur.intro, curTakeaway: cur.takeaway, curDone: !isRate && !!s.completed[cur.id],
+      hasPrev: isRate ? true : idx > 0, prev: () => this.go(isRate ? 'cert' : LESSONS[idx - 1].id), hasNext: hasNext && !isRate,
+      nextLabel: checkDone ? 'Complete & continue' : 'Skip for now',
+      hasObjective: !isRate && !!OBJ[cur.id], curObjective: OBJ[cur.id] || '',
+      showRecap: !isRate && idx > 0 && LESSONS[idx - 1].mod !== cur.mod && !!RECAP[cur.mod], recapMod: cur.mod - 1, recapText: RECAP[cur.mod] || '',
+      quizVerdict: quizScore === 4 ? 'Secure' : quizScore === 3 ? 'Secure, with one idea to revisit' : 'Worth revisiting before the capstone',
+      quizAdvice: quizScore >= 3 ? 'One attempt per question — the point is to learn from the answer. Carry the four ideas into your capstone.' : 'No retakes: instead, revisit the lessons behind the questions you missed, then write your capstone with them in mind.',
+      quizWeak: quizScore < 4, quizRevisit: QUIZ.map((q, i) => ({ i, ok: (s.quiz[i] || {}).pick === q.ans })).filter(x => !x.ok).map(x => QUIZ_LINK[x.i]).flat().filter((v, i, a) => a.indexOf(v) === i).map(id => ({ title: LESSONS.find(l => l.id === id).title, go: () => this.go(id) })), nextStyle: 'min-height:44px;padding:10px 20px;border-radius:8px;font-weight:600;font-size:14px;white-space:nowrap;' + (checkDone ? 'border:1px solid #1F3A5F;background:#1F3A5F;color:#fff' : 'border:1px solid #B8C3D4;background:transparent;color:#1F3A5F'),
+      checkPending: !checkDone && !isRate && hasNext, checkHint: CHECK_HINT[cur.id] || 'Finish the check on this page to mark the lesson complete.',
+      next: () => { if (checkDone) this.markDone(cur.id); if (hasNext) this.go(LESSONS[idx + 1].id); },
+      goRate: () => this.go('rate'), rateNavStyle: 'display:flex;align-items:center;gap:10px;width:100%;text-align:left;padding:8px 10px;border:0;border-radius:8px;font-size:13.5px;' + (isRate ? 'background:#D9E1EC;color:#1F3A5F;font-weight:600' : 'background:transparent;color:#1F3A5F') + (rated ? ';color:#2f5a37' : ''),
+      rateNavLabel: rated ? 'Rated · thank you' : 'Rate this course',
+      rateSent: !!r.sent, rateOpen: !r.sent, rateStars: r.stars, rateSentNote: r.synced ? 'Your feedback has been recorded.' : 'Saved on this device; it will be recorded when the course is running online.', rateEdit: () => this.setState(st => ({ rating: { ...st.rating, sent: false } })),
+      rateSubmit: e => this.submitRating(e), rateDisabled: !r.stars, rateHint: ['', 'Poor', 'Fair', 'Good', 'Very good', 'Excellent'][r.stars] || 'Tap a star', stars, usefulOpts, rateText: r.text, onRateText: e => this.setState(st => ({ rating: { ...st.rating, text: e.target.value } })),
+      qrImg: React.createElement('img', { src: 'https://api.qrserver.com/v1/create-qr-code/?size=180x180&margin=0&color=1F3A5F&bgcolor=ffffff&data=' + encodeURIComponent(verifyUrl), width: 70, height: 70, loading: 'eager', decoding: 'sync', alt: 'QR code linking to the credential verification page', style: { display: 'block', width: 70, height: 70 } }),
+      verifyUrl, verifyCaption: local ? 'Local record — not registered online' : 'Verify this credential',
+      certNote: local ? 'Issued on a device without a connection to the issuing service. Records course completion only.' : 'Records course completion only; does not confer accredited or regulated professional competence.',
+      openingNote: s.openingNote, onOpeningNote: e => this.setState({ openingNote: e.target.value }), hasOpeningNote: !!s.openingNote.trim(),
+      rewriteNote: s.rewriteNote, onRewriteNote: e => this.setState({ rewriteNote: e.target.value }),
+      orderOpts, orderSlots, orderDone, orderMiss: s.orderMiss, orderExpected: PATH[s.order.length] || PATH[0],
+      sortItems, sortAllDone, sortRight,
+      stageItems: classify('stage', STAGE_Q, STAGES, it => STAGES[it.c] + ': ' + ['we know where we want to be and are not there yet.', 'practice is appearing in some classes, some weeks, some hands.', 'practice is consistent across most of the school and improving on a plan.', 'practice is embedded and demonstrably changing outcomes.'][it.c]),
+      fiItems, classItems: classify('cls', CLASS_Q, CLASS_LABELS, it => ['what the school does.', 'proof the activity happened.', 'proof it made a difference.', 'the measure used to judge progress.'][it.c]),
+      missingOpts: missing.opts, missingPicked: missing.picked, missingFbStyle: missing.fbStyle, missingFeedback: missing.feedback,
+      hypOpts: hyp.opts, hypPicked: hyp.picked, hypFbStyle: hyp.fbStyle, hypFeedback: hyp.feedback,
+      triItems, pillarOpts: pillar.opts, pillarPicked: pillar.picked, pillarFbStyle: pillar.fbStyle, pillarFeedback: pillar.feedback,
+      termItems: classify('term', TERM, TERM_LABELS, it => ['Term 1 records implementation evidence.', 'Term 2 records movement and learning.', 'Term 3 makes an impact claim or revises.'][it.c]),
+      claimOpts: claim.opts, claimPicked: claim.picked, claimFbStyle: claim.fbStyle, claimFeedback: claim.feedback,
+      qPickOpts, qPicked: s.qpick !== null && s.qpick !== undefined, qPickN: (s.qpick ?? 0) + 1, qPickText: QTEXT[s.qpick ?? 0],
+      ethItems, quizItems, quizScore, quizRevealedCount, quizAllRevealed: quizRevealedCount === 4,
+      task: { objective: t.objective || '', owner: t.owner || '', impl: t.impl || '', impact: t.impact || '', hyp: t.hyp || '' },
+      onTaskObjective: e => this.patch('task', 'objective', e.target.value), onTaskOwner: e => this.patch('task', 'owner', e.target.value), onTaskImpl: e => this.patch('task', 'impl', e.target.value), onTaskImpact: e => this.patch('task', 'impact', e.target.value), onTaskHyp: e => this.patch('task', 'hyp', e.target.value),
+      taskFilled, taskStatus: taskFilled === 5 ? 'Scorecard line complete' : taskFilled + ' of 5 fields complete', taskStatusStyle: 'font-size:13px;padding:4px 10px;border-radius:999px;font-weight:600;' + (taskFilled === 5 ? 'background:rgba(46,139,87,.15);color:#2f5a37' : 'background:#D9E1EC;color:#1F3A5F'),
+      commitFocus: s.commitFocus, commitBecause: s.commitBecause, onCommitFocus: e => this.setState({ commitFocus: e.target.value }), onCommitBecause: e => this.setState({ commitBecause: e.target.value }),
+      certLocked: !certReady, certReady, req1Style: req(allLessons), req2Style: req(taskFilled === 5), req3Style: req(quizRevealedCount === 4), req4Style: req(commitOk),
+      goTask: () => this.go('task'), goQuiz: () => this.go('quiz'), goCapstone: () => this.go('capstone'),
+      credId: s.credId || 'Issuing…', today: s.credDate || new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }), printCert: () => this.printCert(), downloadBadge: () => this.downloadBadge(), badgeBusy: !!s.badgeBusy, badgeLabel: s.badgeBusy ? 'Preparing badge…' : 'Download digital badge (PNG)'
+    };
+  }
+}
+</script>
+</body>
+</html>

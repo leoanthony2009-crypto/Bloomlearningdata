@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;background:#F2F4F8;color:#1F3A5F;font-family:'IBM Plex Sans',system-ui,sans-serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+h1,h2,h3,p{margin:0}
+a{color:#1F3A5F;text-underline-offset:3px}a:hover{color:#B08D2E}
+button,input{font:inherit}
+:focus{outline:none}:focus-visible{outline:2px solid #B08D2E;outline-offset:2px}
+</style>
+</helmet>
+<div style="min-height:100vh;display:flex;flex-direction:column">
+  <div style="height:8px;background:#1F3A5F"></div>
+  <div style="max-width:720px;width:100%;margin:0 auto;padding:48px 24px 72px;display:flex;flex-direction:column;gap:26px">
+    <div style="display:flex;flex-direction:column;gap:2px"><span style="font-size:13px;font-variant:small-caps;letter-spacing:.16em;color:#B08D2E;font-weight:600">Bloom Learning Lab</span><span style="font-size:12px;color:#4A5B75;letter-spacing:.08em;text-transform:uppercase">Credential verification</span></div>
+    <h1 style="font-size:clamp(26px,3.4vw,36px)">Verify a certificate</h1>
+    <form onSubmit="{{ onSubmit }}" style="display:flex;flex-wrap:wrap;gap:10px;align-items:flex-end">
+      <label style="display:flex;flex-direction:column;gap:6px;flex:1;min-width:220px;font-weight:600;font-size:14px">Credential ID
+        <input value="{{ draft }}" onChange="{{ onDraft }}" placeholder="BLL02-XXXXXX" autocapitalize="characters" spellcheck="false" style="padding:10px 14px;border-radius:8px;border:1px solid #B8C3D4;background:#fff;font-size:16px;letter-spacing:.06em;font-weight:400;color:#1F3A5F"></label>
+      <button type="submit" style="min-height:44px;padding:10px 20px;border-radius:8px;border:1px solid #1F3A5F;background:#1F3A5F;color:#fff;font-weight:600;font-size:14px;cursor:pointer" style-hover="background:#16304f">Check</button>
+    </form>
+
+    <sc-if value="{{ loading }}" hint-placeholder-val="{{ false }}"><p style="color:#4A5B75">Checking…</p></sc-if>
+
+    <sc-if value="{{ valid }}" hint-placeholder-val="{{ false }}">
+      <div style="padding:26px 28px;border-radius:8px;background:#fff;border:1px solid #2E8B57;display:flex;flex-direction:column;gap:16px">
+        <div style="color:#2f5a37;font-weight:600;font-size:18px">Valid credential</div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px 24px;font-size:15px">
+          <div style="display:flex;flex-direction:column;gap:2px"><span style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#4A5B75">Recipient</span><span style="font-weight:600;font-size:20px">{{ rec.recipient }}</span></div>
+          <div style="display:flex;flex-direction:column;gap:2px"><span style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#4A5B75">Credential ID</span><span style="font-weight:600">{{ rec.id }}</span></div>
+          <div style="display:flex;flex-direction:column;gap:2px"><span style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#4A5B75">Course</span><span>{{ rec.course }}</span><span style="font-size:13px;color:#4A5B75">{{ rec.courseCode }}</span></div>
+          <div style="display:flex;flex-direction:column;gap:2px"><span style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#4A5B75">Issued</span><span>{{ rec.issueDate }}</span><span style="font-size:13px;color:#4A5B75">No expiration</span></div>
+          <div style="display:flex;flex-direction:column;gap:2px"><span style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#4A5B75">Issuer</span><span>{{ rec.issuer }}</span></div>
+          <div style="display:flex;flex-direction:column;gap:2px"><span style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#4A5B75">Level · duration</span><span>{{ rec.level }} · {{ rec.hours }} learning hour</span></div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{ skills }}" as="sk" hint-placeholder-count="3"><span style="font-size:13px;padding:5px 12px;border-radius:999px;background:#D9E1EC;color:#1F3A5F;font-weight:600;white-space:nowrap">{{ sk }}</span></sc-for></div>
+        <p style="font-size:12.5px;color:#4A5B75">Records course completion only; does not confer accredited or regulated professional competence.</p>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ revoked }}" hint-placeholder-val="{{ false }}">
+      <div style="padding:22px 26px;border-radius:8px;background:#fff;border:1px solid #B0493A;display:flex;flex-direction:column;gap:6px">
+        <div style="font-weight:600;font-size:18px;color:#8a2f22">Credential revoked</div>
+        <p style="font-size:15px">{{ rec.id }} was issued to {{ rec.recipient }} but has since been revoked by the issuer.</p>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ notFound }}" hint-placeholder-val="{{ false }}">
+      <div style="padding:22px 26px;border-radius:8px;background:#fff;border:1px solid #B08D2E;display:flex;flex-direction:column;gap:6px">
+        <div style="font-weight:600;font-size:18px;color:#6e4f12">No record found</div>
+        <p style="font-size:15px;text-wrap:pretty">{{ notFoundMsg }}</p>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ offline }}" hint-placeholder-val="{{ false }}">
+      <div style="padding:22px 26px;border-radius:8px;background:#fff;border:1px solid #D9E1EC;display:flex;flex-direction:column;gap:6px">
+        <div style="font-weight:600;font-size:18px">Verification service unavailable</div>
+        <p style="font-size:15px">The lookup service did not respond. This page works once the course is deployed to Netlify with its functions enabled.</p>
+      </div>
+    </sc-if>
+
+    <p style="font-size:13px;color:#4A5B75;text-wrap:pretty">Questions about a credential? Contact Bloom Learning Lab quoting the credential ID.</p>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { draft: '', status: 'idle', rec: null, reason: '' };
+  componentDidMount() {
+    const id = new URLSearchParams(location.search).get('id');
+    if (id) { this.setState({ draft: id.toUpperCase() }); this.lookup(id); }
+  }
+  async lookup(raw) {
+    const id = String(raw || '').trim().toUpperCase();
+    if (!id) return;
+    this.setState({ status: 'loading', rec: null });
+    if (/-L\d+$/.test(id)) { this.setState({ status: 'notfound', reason: 'local' }); return; }
+    try {
+      const r = await fetch('/api/verify?id=' + encodeURIComponent(id), { cache: 'no-store' });
+      if (r.status === 404) { const j = await r.json().catch(() => ({})); this.setState({ status: 'notfound', reason: j.reason || 'unknown' }); return; }
+      if (!r.ok) throw new Error(r.status);
+      const j = await r.json();
+      this.setState({ status: j.status === 'revoked' ? 'revoked' : 'valid', rec: j });
+    } catch (e) { this.setState({ status: 'offline' }); }
+  }
+  renderVals() {
+    const s = this.state;
+    const msg = { local: 'This ID ends in “-L”, which marks a certificate generated on a device without a connection to the issuing service. It is a completion record but is not registered online.', malformed: 'That does not look like a Bloom Learning Lab credential ID. IDs have the form BLL02-XXXXXX.', unknown: 'No credential with this ID has been issued by Bloom Learning Lab.' };
+    return {
+      draft: s.draft, onDraft: e => this.setState({ draft: e.target.value }),
+      onSubmit: e => { e.preventDefault(); const id = s.draft.trim().toUpperCase(); history.replaceState(null, '', '?id=' + encodeURIComponent(id)); this.lookup(id); },
+      loading: s.status === 'loading', valid: s.status === 'valid', revoked: s.status === 'revoked', notFound: s.status === 'notfound', offline: s.status === 'offline',
+      rec: s.rec || {}, skills: (s.rec && s.rec.skills) || [], notFoundMsg: msg[s.reason] || msg.unknown
+    };
+  }
+}
+</script>
+</body>
+</html>

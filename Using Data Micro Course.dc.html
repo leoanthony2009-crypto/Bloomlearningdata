@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;padding:0;height:100%;background:#0f1d30}
+a{color:#1F3A5F}a:hover{color:#B08D2E}
+</style>
+</helmet>
+<x-import component-from-global-scope="deck-stage" from="./deck-stage.js" width="1920" height="1080" hint-size="100%,100%">
+
+<section data-label="Cover" data-speaker-notes="Welcome. A 30-minute micro course. The pathway runs survey → action plan → scorecard → termly review." style="background:#1F3A5F;font-family:'IBM Plex Sans',sans-serif;color:#fff;padding:96px 120px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box">
+  <div style="font-size:26px;font-variant:small-caps;letter-spacing:0.16em;color:#B08D2E;font-weight:600">BLOOM Learning Lab</div>
+  <div style="display:flex;flex-direction:column;gap:36px">
+    <h1 style="margin:0;font-size:104px;line-height:1.05;font-weight:700;max-width:1300px;text-wrap:pretty">Using Data to Direct School Improvement</h1>
+    <p style="margin:0;font-size:34px;line-height:1.4;color:#D9E1EC;max-width:1200px;text-wrap:pretty">30 minutes core learning for principals and school leaders · applied practice with your own data</p>
+    <p style="margin:0;font-size:28px;color:#B08D2E;font-weight:500">Assessment Survey → Action Plan → Balanced Scorecard → Termly Review</p>
+  </div>
+  <div style="display:flex;justify-content:space-between;align-items:flex-end">
+    <div style="display:flex;gap:40px">
+      <div style="display:flex;flex-direction:column;gap:12px;width:200px"><div style="height:10px;background:#B08D2E;border-radius:5px;width:90%"></div><span style="font-size:24px;color:#D9E1EC">Assessment</span></div>
+      <div style="display:flex;flex-direction:column;gap:12px;width:200px"><div style="height:10px;background:#D9E1EC;border-radius:5px;width:75%"></div><span style="font-size:24px;color:#D9E1EC">Feedback</span></div>
+      <div style="display:flex;flex-direction:column;gap:12px;width:200px"><div style="height:10px;background:#D9E1EC;border-radius:5px;width:71%"></div><span style="font-size:24px;color:#D9E1EC">Intervention</span></div>
+      <div style="display:flex;flex-direction:column;gap:12px;width:200px"><div style="height:10px;background:#D9E1EC;border-radius:5px;width:67%"></div><span style="font-size:24px;color:#D9E1EC">Monitoring</span></div>
+    </div>
+    <span style="font-size:24px;color:#D9E1EC">BPLF-MC-DATA-01 v1.3</span>
+  </div>
+</section>
+
+<section data-label="01 Course promise" data-speaker-notes="State the promise. Walk the route timings briefly." style="background:#F2F4F8;font-family:'IBM Plex Sans',sans-serif;color:#1F3A5F;padding:72px 100px 120px;display:flex;flex-direction:column;box-sizing:border-box">
+  <div style="font-size:24px;font-variant:small-caps;letter-spacing:0.16em;color:#B08D2E;font-weight:600">BLOOM Learning Lab</div>
+  <h2 style="margin:12px 0 40px;font-size:56px;font-weight:600;line-height:1.1">Course promise and outcomes</h2>
+  <div style="background:#D9E1EC;border-radius:8px;padding:30px 40px;font-size:30px;line-height:1.4;text-wrap:pretty">In 30 minutes: turn AFFIRM evidence into one focused priority, record a warranted judgement, create a testable hypothesis, and use the scorecard to track whether practice is improving.</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:32px;flex:1">
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:32px 40px;display:flex;flex-direction:column;gap:18px">
+      <div style="font-size:24px;color:#B08D2E;font-weight:600;letter-spacing:0.06em;text-transform:uppercase">By the end, leaders can</div>
+      <ol style="margin:0;padding-left:36px;font-size:28px;line-height:1.5;display:flex;flex-direction:column;gap:10px">
+        <li>Read a survey report for strengths and priorities</li>
+        <li>Translate one priority into a complete scorecard line</li>
+        <li>Use a balanced scorecard to track improvement over time</li>
+        <li>Ask stronger termly review questions</li>
+        <li>Interpret evidence through disciplined sense-making — never score-chasing</li>
+      </ol>
+    </div>
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:32px 40px;display:flex;flex-direction:column;gap:18px">
+      <div style="font-size:24px;color:#B08D2E;font-weight:600;letter-spacing:0.06em;text-transform:uppercase">30-minute route</div>
+      <div style="display:grid;grid-template-columns:120px 1fr;row-gap:14px;column-gap:24px;font-size:28px;line-height:1.4">
+        <span style="font-weight:600">0–2</span><span>Course purpose and outcomes</span>
+        <span style="font-weight:600">2–8</span><span>Reading the survey, strengths first</span>
+        <span style="font-weight:600">8–12</span><span>Selecting one priority</span>
+        <span style="font-weight:600">12–22</span><span>Action report → scorecard line</span>
+        <span style="font-weight:600">22–28</span><span>Hypothesis · evidence · warrants</span>
+        <span style="font-weight:600">28–30</span><span>Review · commitment · knowledge check</span>
+      </div>
+    </div>
+  </div>
+  <div style="position:absolute;left:100px;right:100px;bottom:44px;display:flex;justify-content:space-between;align-items:center"><span style="font-size:24px;color:#4A5B75">Using data to direct school improvement · BPLF-MC-DATA-01 v1.3</span><span style="width:48px;height:48px;background:#1F3A5F;color:#fff;font-size:24px;font-weight:600;display:flex;align-items:center;justify-content:center;border-radius:4px">01</span></div>
+</section>
+
+<section data-label="02 Why scorecards" data-speaker-notes="Data collected is not the same as data used. Each stage carries a leadership question." style="background:#F2F4F8;font-family:'IBM Plex Sans',sans-serif;color:#1F3A5F;padding:72px 100px 120px;display:flex;flex-direction:column;box-sizing:border-box">
+  <div style="font-size:24px;font-variant:small-caps;letter-spacing:0.16em;color:#B08D2E;font-weight:600">BLOOM Learning Lab</div>
+  <h2 style="margin:12px 0 40px;font-size:56px;font-weight:600;line-height:1.1">Why balanced scorecards help school leaders</h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px">
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:32px 40px;display:flex;flex-direction:column;gap:16px">
+      <div style="font-size:24px;color:#B08D2E;font-weight:600;letter-spacing:0.06em;text-transform:uppercase">Common data problem</div>
+      <p style="margin:0;font-size:30px;line-height:1.45;text-wrap:pretty">Schools often collect survey, assessment and attendance data — but the data does not always direct decisions, follow-up or accountability.</p>
+    </div>
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:32px 40px;display:flex;flex-direction:column;gap:16px">
+      <div style="font-size:24px;color:#B08D2E;font-weight:600;letter-spacing:0.06em;text-transform:uppercase">Scorecard response</div>
+      <p style="margin:0;font-size:30px;line-height:1.45;text-wrap:pretty">A balanced scorecard keeps a small number of improvement priorities visible, linked to evidence, owners, actions, review dates and movement over time.</p>
+    </div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 48px 1fr 48px 1fr 48px 1fr;align-items:stretch;gap:12px;margin-top:48px">
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:28px 32px;display:flex;flex-direction:column;gap:10px"><span style="font-size:34px;font-weight:600">Data</span><span style="font-size:26px;line-height:1.4;color:#4A5B75">What does the evidence say?</span></div>
+    <span style="font-size:40px;color:#B08D2E;display:flex;align-items:center;justify-content:center">→</span>
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:28px 32px;display:flex;flex-direction:column;gap:10px"><span style="font-size:34px;font-weight:600">Decision</span><span style="font-size:26px;line-height:1.4;color:#4A5B75">What matters most now?</span></div>
+    <span style="font-size:40px;color:#B08D2E;display:flex;align-items:center;justify-content:center">→</span>
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:28px 32px;display:flex;flex-direction:column;gap:10px"><span style="font-size:34px;font-weight:600">Action</span><span style="font-size:26px;line-height:1.4;color:#4A5B75">Who will do what by when?</span></div>
+    <span style="font-size:40px;color:#B08D2E;display:flex;align-items:center;justify-content:center">→</span>
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:28px 32px;display:flex;flex-direction:column;gap:10px"><span style="font-size:34px;font-weight:600">Review</span><span style="font-size:26px;line-height:1.4;color:#4A5B75">What changed and what did we learn?</span></div>
+  </div>
+  <div style="position:absolute;left:100px;right:100px;bottom:44px;display:flex;justify-content:space-between;align-items:center"><span style="font-size:24px;color:#4A5B75">Using data to direct school improvement · BPLF-MC-DATA-01 v1.3</span><span style="width:48px;height:48px;background:#1F3A5F;color:#fff;font-size:24px;font-weight:600;display:flex;align-items:center;justify-content:center;border-radius:4px">02</span></div>
+</section>
+
+<section data-label="03 Pathway" data-speaker-notes="Four stages. The survey diagnoses; the plan responds; the scorecard holds the story." style="background:#F2F4F8;font-family:'IBM Plex Sans',sans-serif;color:#1F3A5F;padding:72px 100px 120px;display:flex;flex-direction:column;box-sizing:border-box">
+  <div style="font-size:24px;font-variant:small-caps;letter-spacing:0.16em;color:#B08D2E;font-weight:600">BLOOM Learning Lab</div>
+  <h2 style="margin:12px 0 40px;font-size:56px;font-weight:600;line-height:1.1">The improvement pathway</h2>
+  <div style="display:grid;grid-template-columns:1fr 48px 1fr 48px 1fr 48px 1fr;align-items:stretch;gap:12px">
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:28px 32px;display:flex;flex-direction:column;gap:10px"><span style="font-size:24px;color:#B08D2E;font-weight:600">1</span><span style="font-size:32px;font-weight:600;line-height:1.2">Assessment Survey</span><span style="font-size:26px;color:#4A5B75">baseline evidence</span></div>
+    <span style="font-size:40px;color:#B08D2E;display:flex;align-items:center;justify-content:center">→</span>
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:28px 32px;display:flex;flex-direction:column;gap:10px"><span style="font-size:24px;color:#B08D2E;font-weight:600">2</span><span style="font-size:32px;font-weight:600;line-height:1.2">Action Report</span><span style="font-size:26px;color:#4A5B75">objectives</span></div>
+    <span style="font-size:40px;color:#B08D2E;display:flex;align-items:center;justify-content:center">→</span>
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:28px 32px;display:flex;flex-direction:column;gap:10px"><span style="font-size:24px;color:#B08D2E;font-weight:600">3</span><span style="font-size:32px;font-weight:600;line-height:1.2">Balanced Scorecard</span><span style="font-size:26px;color:#4A5B75">priorities, warrants</span></div>
+    <span style="font-size:40px;color:#B08D2E;display:flex;align-items:center;justify-content:center">→</span>
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:28px 32px;display:flex;flex-direction:column;gap:10px"><span style="font-size:24px;color:#B08D2E;font-weight:600">4</span><span style="font-size:32px;font-weight:600;line-height:1.2">Termly Review</span><span style="font-size:26px;color:#4A5B75">movement</span></div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:48px">
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:32px 40px;display:flex;flex-direction:column;gap:16px">
+      <div style="font-size:24px;color:#B08D2E;font-weight:600;letter-spacing:0.06em;text-transform:uppercase">Leadership question</div>
+      <p style="margin:0;font-size:30px;line-height:1.45;text-wrap:pretty">At each stage, ask: what decision does this evidence help us make?</p>
+    </div>
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:32px 40px;display:flex;flex-direction:column;gap:16px">
+      <div style="font-size:24px;color:#B08D2E;font-weight:600;letter-spacing:0.06em;text-transform:uppercase">Course focus</div>
+      <p style="margin:0;font-size:30px;line-height:1.45;text-wrap:pretty">The survey diagnoses. The action plan specifies the response. The scorecard holds the improvement story over time.</p>
+    </div>
+  </div>
+  <div style="position:absolute;left:100px;right:100px;bottom:44px;display:flex;justify-content:space-between;align-items:center"><span style="font-size:24px;color:#4A5B75">Using data to direct school improvement · BPLF-MC-DATA-01 v1.3</span><span style="width:48px;height:48px;background:#1F3A5F;color:#fff;font-size:24px;font-weight:600;display:flex;align-items:center;justify-content:center;border-radius:4px">03</span></div>
+</section>
+
+<section data-label="04 Example baseline" data-speaker-notes="School A baseline. Read strengths first, then priorities. Mention the 3.64 vs 3.60 harmonisation." style="background:#F2F4F8;font-family:'IBM Plex Sans',sans-serif;color:#1F3A5F;padding:72px 100px 120px;display:flex;flex-direction:column;box-sizing:border-box">
+  <div style="font-size:24px;font-variant:small-caps;letter-spacing:0.16em;color:#B08D2E;font-weight:600">BLOOM Learning Lab</div>
+  <h2 style="margin:12px 0 40px;font-size:56px;font-weight:600;line-height:1.1">Example baseline: survey results become leadership data</h2>
+  <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:40px;flex:1">
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:36px 40px;display:flex;flex-direction:column;justify-content:space-between">
+      <div style="display:grid;grid-template-columns:400px 1fr 90px;align-items:center;column-gap:24px;font-size:28px"><span>Assessment Quality</span><div style="height:28px;background:#D9E1EC;border-radius:4px"><div style="height:100%;width:90%;background:#1F3A5F;border-radius:4px"></div></div><span style="font-weight:600;text-align:right">3.60</span></div>
+      <div style="display:grid;grid-template-columns:400px 1fr 90px;align-items:center;column-gap:24px;font-size:28px"><span>Technical Practice</span><div style="height:28px;background:#D9E1EC;border-radius:4px"><div style="height:100%;width:81.25%;background:#1F3A5F;border-radius:4px"></div></div><span style="font-weight:600;text-align:right">3.25</span></div>
+      <div style="display:grid;grid-template-columns:400px 1fr 90px;align-items:center;column-gap:24px;font-size:28px"><span>Feedback</span><div style="height:28px;background:#D9E1EC;border-radius:4px"><div style="height:100%;width:75%;background:#1F3A5F;border-radius:4px"></div></div><span style="font-weight:600;text-align:right">3.00</span></div>
+      <div style="display:grid;grid-template-columns:400px 1fr 90px;align-items:center;column-gap:24px;font-size:28px"><span>Reward &amp; Recognition</span><div style="height:28px;background:#D9E1EC;border-radius:4px"><div style="height:100%;width:75%;background:#1F3A5F;border-radius:4px"></div></div><span style="font-weight:600;text-align:right">3.00</span></div>
+      <div style="display:grid;grid-template-columns:400px 1fr 90px;align-items:center;column-gap:24px;font-size:28px"><span>Intervention</span><div style="height:28px;background:#D9E1EC;border-radius:4px"><div style="height:100%;width:70.75%;background:#B08D2E;border-radius:4px"></div></div><span style="font-weight:600;text-align:right">2.83</span></div>
+      <div style="display:grid;grid-template-columns:400px 1fr 90px;align-items:center;column-gap:24px;font-size:28px"><span>Management &amp; Monitoring</span><div style="height:28px;background:#D9E1EC;border-radius:4px"><div style="height:100%;width:66.75%;background:#B08D2E;border-radius:4px"></div></div><span style="font-weight:600;text-align:right">2.67</span></div>
+      <span style="font-size:24px;color:#4A5B75">School A · AFFIRM baseline · scale out of 4</span>
+    </div>
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:36px 40px;display:flex;flex-direction:column;gap:22px">
+      <div style="font-size:24px;color:#B08D2E;font-weight:600;letter-spacing:0.06em;text-transform:uppercase">Read it like a leader</div>
+      <p style="margin:0;font-size:28px;line-height:1.45"><strong>Strengths first:</strong> Assessment Quality and Technical Practice.</p>
+      <p style="margin:0;font-size:28px;line-height:1.45"><strong>Priorities next:</strong> Management &amp; Monitoring, Intervention.</p>
+      <p style="margin:0;font-size:28px;line-height:1.45">Keep the conversation developmental, not punitive.</p>
+      <p style="margin:auto 0 0;font-size:24px;line-height:1.45;color:#4A5B75;text-wrap:pretty">Note: the updated action report records Assessment Quality as 3.64; the scorecard uses the harmonised 3.60.</p>
+    </div>
+  </div>
+  <div style="position:absolute;left:100px;right:100px;bottom:44px;display:flex;justify-content:space-between;align-items:center"><span style="font-size:24px;color:#4A5B75">Using data to direct school improvement · BPLF-MC-DATA-01 v1.3</span><span style="width:48px;height:48px;background:#1F3A5F;color:#fff;font-size:24px;font-weight:600;display:flex;align-items:center;justify-content:center;border-radius:4px">04</span></div>
+</section>
+
+<section data-label="05 Four stages" data-speaker-notes="Stages are progression, not grades. Read the two rules verbatim." style="background:#F2F4F8;font-family:'IBM Plex Sans',sans-serif;color:#1F3A5F;padding:72px 100px 120px;display:flex;flex-direction:column;box-sizing:border-box">
+  <div style="font-size:24px;font-variant:small-caps;letter-spacing:0.16em;color:#B08D2E;font-weight:600">BLOOM Learning Lab</div>
+  <h2 style="margin:12px 0 40px;font-size:56px;font-weight:600;line-height:1.1">The four stages are progression stages, not grades</h2>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:28px">
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:32px 36px;display:flex;flex-direction:column;gap:14px;min-height:320px"><span style="font-size:24px;color:#B08D2E;font-weight:600">1</span><span style="font-size:36px;font-weight:600">Aspiring</span><span style="font-size:26px;line-height:1.45;color:#4A5B75;text-wrap:pretty">We know where we want to be and are not there yet.</span></div>
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:32px 36px;display:flex;flex-direction:column;gap:14px;min-height:320px"><span style="font-size:24px;color:#B08D2E;font-weight:600">2</span><span style="font-size:36px;font-weight:600">Emerging</span><span style="font-size:26px;line-height:1.45;color:#4A5B75;text-wrap:pretty">Practice is appearing in some classes, some weeks, some hands.</span></div>
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:32px 36px;display:flex;flex-direction:column;gap:14px;min-height:320px"><span style="font-size:24px;color:#B08D2E;font-weight:600">3</span><span style="font-size:36px;font-weight:600">Developing</span><span style="font-size:26px;line-height:1.45;color:#4A5B75;text-wrap:pretty">Practice is consistent across most of the school and improving on a plan.</span></div>
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:32px 36px;display:flex;flex-direction:column;gap:14px;min-height:320px"><span style="font-size:24px;color:#B08D2E;font-weight:600">4</span><span style="font-size:36px;font-weight:600">Impacting</span><span style="font-size:26px;line-height:1.45;color:#4A5B75;text-wrap:pretty">Practice is embedded and demonstrably changing outcomes.</span></div>
+  </div>
+  <div style="background:#D9E1EC;border-radius:8px;padding:34px 40px;font-size:32px;line-height:1.45;margin-top:48px;text-wrap:pretty">A score band gives a starting position, never a final judgement. The leadership team validates the level with the Evidence Triangle — a number without a warrant is an opinion.</div>
+  <div style="position:absolute;left:100px;right:100px;bottom:44px;display:flex;justify-content:space-between;align-items:center"><span style="font-size:24px;color:#4A5B75">Using data to direct school improvement · BPLF-MC-DATA-01 v1.3</span><span style="width:48px;height:48px;background:#1F3A5F;color:#fff;font-size:24px;font-weight:600;display:flex;align-items:center;justify-content:center;border-radius:4px">05</span></div>
+</section>
+
+<section data-label="06 Step 1 priorities" data-speaker-notes="Strengths first, then lowest leverage, then a manageable focus. The M&amp;M system-lever idea is an inference, not a finding." style="background:#F2F4F8;font-family:'IBM Plex Sans',sans-serif;color:#1F3A5F;padding:72px 100px 120px;display:flex;flex-direction:column;box-sizing:border-box">
+  <div style="font-size:24px;font-variant:small-caps;letter-spacing:0.16em;color:#B08D2E;font-weight:600">BLOOM Learning Lab</div>
+  <h2 style="margin:12px 0 36px;font-size:56px;font-weight:600;line-height:1.1">Step 1: turn the survey into priorities</h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;flex:1">
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:24px 32px;display:flex;gap:24px;align-items:flex-start"><span style="font-size:30px;font-weight:600;color:#B08D2E">1</span><div style="display:flex;flex-direction:column;gap:6px"><span style="font-size:28px;font-weight:600">Name strengths first</span><span style="font-size:24px;line-height:1.4;color:#4A5B75">Where are we already strong enough to protect and share practice?</span></div></div>
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:24px 32px;display:flex;gap:24px;align-items:flex-start"><span style="font-size:30px;font-weight:600;color:#B08D2E">2</span><div style="display:flex;flex-direction:column;gap:6px"><span style="font-size:28px;font-weight:600">Identify the lowest leverage area</span><span style="font-size:24px;line-height:1.4;color:#4A5B75">Which lower score matters most for student learning and school systems?</span></div></div>
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:24px 32px;display:flex;gap:24px;align-items:flex-start"><span style="font-size:30px;font-weight:600;color:#B08D2E">3</span><div style="display:flex;flex-direction:column;gap:6px"><span style="font-size:28px;font-weight:600">Choose a manageable focus</span><span style="font-size:24px;line-height:1.4;color:#4A5B75">What can leadership influence this term?</span></div></div>
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:28px 32px;display:flex;flex-direction:column;gap:12px;flex:1">
+        <div style="font-size:24px;color:#B08D2E;font-weight:600;letter-spacing:0.06em;text-transform:uppercase">A possible leadership interpretation</div>
+        <p style="margin:0;font-size:24px;line-height:1.45;text-wrap:pretty">The survey directly reports Management &amp; Monitoring as the lowest area at 2.67. A leadership inference — to be tested through action — is that it is a system lever: if review and documentation improve, feedback and intervention decisions become easier to track.</p>
+      </div>
+    </div>
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:12px 36px;display:grid;grid-template-columns:1fr 110px 1fr;align-content:start;font-size:26px;line-height:1.3">
+      <span style="padding:18px 0;border-bottom:1px solid #D9E1EC;font-size:22px;color:#B08D2E;font-weight:600;letter-spacing:0.06em;text-transform:uppercase">Survey area</span><span style="padding:18px 0;border-bottom:1px solid #D9E1EC;font-size:22px;color:#B08D2E;font-weight:600;letter-spacing:0.06em;text-transform:uppercase">Score</span><span style="padding:18px 0;border-bottom:1px solid #D9E1EC;font-size:22px;color:#B08D2E;font-weight:600;letter-spacing:0.06em;text-transform:uppercase">Indicative stage</span>
+      <span style="padding:18px 0;border-bottom:1px solid #D9E1EC">Assessment Quality</span><span style="padding:18px 0;border-bottom:1px solid #D9E1EC;font-weight:600">3.60</span><span style="padding:18px 0;border-bottom:1px solid #D9E1EC">Impacting — pending warrant</span>
+      <span style="padding:18px 0;border-bottom:1px solid #D9E1EC">Technical Practice</span><span style="padding:18px 0;border-bottom:1px solid #D9E1EC;font-weight:600">3.25</span><span style="padding:18px 0;border-bottom:1px solid #D9E1EC">Developing</span>
+      <span style="padding:18px 0;border-bottom:1px solid #D9E1EC">Feedback</span><span style="padding:18px 0;border-bottom:1px solid #D9E1EC;font-weight:600">3.00</span><span style="padding:18px 0;border-bottom:1px solid #D9E1EC">Developing</span>
+      <span style="padding:18px 0;border-bottom:1px solid #D9E1EC">Reward &amp; Recognition</span><span style="padding:18px 0;border-bottom:1px solid #D9E1EC;font-weight:600">3.00</span><span style="padding:18px 0;border-bottom:1px solid #D9E1EC">Developing</span>
+      <span style="padding:18px 0;border-bottom:1px solid #D9E1EC">Intervention</span><span style="padding:18px 0;border-bottom:1px solid #D9E1EC;font-weight:600">2.83</span><span style="padding:18px 0;border-bottom:1px solid #D9E1EC">Developing</span>
+      <span style="padding:18px 0">Management &amp; Monitoring</span><span style="padding:18px 0;font-weight:600;color:#B08D2E">2.67</span><span style="padding:18px 0">Developing</span>
+      <span style="grid-column:1 / -1;padding:14px 0 10px;font-size:22px;color:#4A5B75;border-top:1px solid #D9E1EC">Indicative stages are score bands only; each must be validated with a warrant.</span>
+    </div>
+  </div>
+  <div style="position:absolute;left:100px;right:100px;bottom:44px;display:flex;justify-content:space-between;align-items:center"><span style="font-size:24px;color:#4A5B75">Using data to direct school improvement · BPLF-MC-DATA-01 v1.3</span><span style="width:48px;height:48px;background:#1F3A5F;color:#fff;font-size:24px;font-weight:600;display:flex;align-items:center;justify-content:center;border-radius:4px">06</span></div>
+</section>
+
+<section data-label="07 Step 2 action report" data-speaker-notes="Four fields. The shift is from activity to decisions with follow-up and evidence." style="background:#F2F4F8;font-family:'IBM Plex Sans',sans-serif;color:#1F3A5F;padding:72px 100px 120px;display:flex;flex-direction:column;box-sizing:border-box">
+  <div style="font-size:24px;font-variant:small-caps;letter-spacing:0.16em;color:#B08D2E;font-weight:600">BLOOM Learning Lab</div>
+  <h2 style="margin:12px 0 40px;font-size:56px;font-weight:600;line-height:1.1">Step 2: translate the action report into scorecard fields</h2>
+  <div style="display:grid;grid-template-columns:1fr 48px 1fr 48px 1fr 48px 1fr;align-items:stretch;gap:12px">
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:28px 32px;display:flex;flex-direction:column;gap:10px"><span style="font-size:32px;font-weight:600">Objective</span><span style="font-size:24px;line-height:1.4;color:#4A5B75">What improvement are we trying to secure?</span></div>
+    <span style="font-size:40px;color:#B08D2E;display:flex;align-items:center;justify-content:center">→</span>
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:28px 32px;display:flex;flex-direction:column;gap:10px"><span style="font-size:32px;font-weight:600">Key activities</span><span style="font-size:24px;line-height:1.4;color:#4A5B75">What will we do to achieve it?</span></div>
+    <span style="font-size:40px;color:#B08D2E;display:flex;align-items:center;justify-content:center">→</span>
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:28px 32px;display:flex;flex-direction:column;gap:10px"><span style="font-size:32px;font-weight:600">Owner + timeline</span><span style="font-size:24px;line-height:1.4;color:#4A5B75">Who leads it and when is it reviewed?</span></div>
+    <span style="font-size:40px;color:#B08D2E;display:flex;align-items:center;justify-content:center">→</span>
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:28px 32px;display:flex;flex-direction:column;gap:10px"><span style="font-size:32px;font-weight:600">Evidence</span><span style="font-size:24px;line-height:1.4;color:#4A5B75">How will we know implementation and impact?</span></div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:48px">
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:32px 40px;display:flex;flex-direction:column;gap:16px">
+      <div style="font-size:24px;color:#B08D2E;font-weight:600;letter-spacing:0.06em;text-transform:uppercase">Example from Management &amp; Monitoring</div>
+      <p style="margin:0;font-size:28px;line-height:1.45;text-wrap:pretty"><strong>Objective:</strong> strengthen leadership monitoring and documentation so assessment evidence is consistently reviewed, acted upon and revisited for impact.</p>
+    </div>
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:32px 40px;display:flex;flex-direction:column;gap:16px">
+      <div style="font-size:24px;color:#B08D2E;font-weight:600;letter-spacing:0.06em;text-transform:uppercase">Key leadership shift</div>
+      <p style="margin:0;font-size:28px;line-height:1.45;color:#4A5B75"><strong style="color:#1F3A5F">From:</strong> “We had a meeting.”</p>
+      <p style="margin:0;font-size:28px;line-height:1.45;text-wrap:pretty"><strong>To:</strong> “The meeting produced decisions, actions, follow-up dates and evidence of impact.”</p>
+    </div>
+  </div>
+  <div style="position:absolute;left:100px;right:100px;bottom:44px;display:flex;justify-content:space-between;align-items:center"><span style="font-size:24px;color:#4A5B75">Using data to direct school improvement · BPLF-MC-DATA-01 v1.3</span><span style="width:48px;height:48px;background:#1F3A5F;color:#fff;font-size:24px;font-weight:600;display:flex;align-items:center;justify-content:center;border-radius:4px">07</span></div>
+</section>
+
+<section data-label="08 Activity is not impact" data-speaker-notes="Four different things. Minutes are activity evidence, not impact." style="background:#F2F4F8;font-family:'IBM Plex Sans',sans-serif;color:#1F3A5F;padding:72px 100px 120px;display:flex;flex-direction:column;box-sizing:border-box">
+  <div style="font-size:24px;font-variant:small-caps;letter-spacing:0.16em;color:#B08D2E;font-weight:600">BLOOM Learning Lab</div>
+  <h2 style="margin:12px 0 40px;font-size:56px;font-weight:600;line-height:1.1">Activity is not impact: four different things</h2>
+  <div style="display:grid;grid-template-columns:1fr 48px 1fr 48px 1fr 48px 1fr;align-items:stretch;gap:12px">
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:28px 32px;display:flex;flex-direction:column;gap:10px"><span style="font-size:32px;font-weight:600">Activity</span><span style="font-size:24px;line-height:1.4;color:#4A5B75">What the school does.</span></div>
+    <span style="font-size:40px;color:#B08D2E;display:flex;align-items:center;justify-content:center">→</span>
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:28px 32px;display:flex;flex-direction:column;gap:10px"><span style="font-size:32px;font-weight:600;line-height:1.2">Implementation evidence</span><span style="font-size:24px;line-height:1.4;color:#4A5B75">Proof the activity happened.</span></div>
+    <span style="font-size:40px;color:#B08D2E;display:flex;align-items:center;justify-content:center">→</span>
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:28px 32px;display:flex;flex-direction:column;gap:10px"><span style="font-size:32px;font-weight:600;line-height:1.2">Outcome evidence</span><span style="font-size:24px;line-height:1.4;color:#4A5B75">Proof it made a difference.</span></div>
+    <span style="font-size:40px;color:#B08D2E;display:flex;align-items:center;justify-content:center">→</span>
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:28px 32px;display:flex;flex-direction:column;gap:10px"><span style="font-size:32px;font-weight:600">Indicator</span><span style="font-size:24px;line-height:1.4;color:#4A5B75">The measure used to judge progress.</span></div>
+  </div>
+  <div style="background:#D9E1EC;border-radius:8px;padding:30px 40px;margin-top:40px;display:grid;grid-template-columns:repeat(4,1fr);gap:32px">
+    <div style="display:flex;flex-direction:column;gap:8px"><span style="font-size:22px;color:#B08D2E;font-weight:600;letter-spacing:0.06em;text-transform:uppercase">Activity</span><span style="font-size:26px;line-height:1.4">Monthly assessment-review meetings</span></div>
+    <div style="display:flex;flex-direction:column;gap:8px"><span style="font-size:22px;color:#B08D2E;font-weight:600;letter-spacing:0.06em;text-transform:uppercase">Implementation</span><span style="font-size:26px;line-height:1.4">Minutes and action tracker</span></div>
+    <div style="display:flex;flex-direction:column;gap:8px"><span style="font-size:22px;color:#B08D2E;font-weight:600;letter-spacing:0.06em;text-transform:uppercase">Outcome</span><span style="font-size:26px;line-height:1.4">Decisions followed up and revisited</span></div>
+    <div style="display:flex;flex-direction:column;gap:8px"><span style="font-size:22px;color:#B08D2E;font-weight:600;letter-spacing:0.06em;text-transform:uppercase">Indicator</span><span style="font-size:26px;line-height:1.4">% of agreed actions completed by the next review</span></div>
+  </div>
+  <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:32px 40px;margin-top:32px;display:flex;flex-direction:column;gap:14px">
+    <div style="font-size:24px;color:#B08D2E;font-weight:600;letter-spacing:0.06em;text-transform:uppercase">Why the distinction matters</div>
+    <p style="margin:0;font-size:30px;line-height:1.45;text-wrap:pretty">Minutes prove a meeting happened — an activity. Only outcome evidence and a moving indicator justify a claim of improvement.</p>
+  </div>
+  <div style="position:absolute;left:100px;right:100px;bottom:44px;display:flex;justify-content:space-between;align-items:center"><span style="font-size:24px;color:#4A5B75">Using data to direct school improvement · BPLF-MC-DATA-01 v1.3</span><span style="width:48px;height:48px;background:#1F3A5F;color:#fff;font-size:24px;font-weight:600;display:flex;align-items:center;justify-content:center;border-radius:4px">08</span></div>
+</section>
+
+<section data-label="09 Step 3 scorecard entry" data-speaker-notes="Walk one complete line for M&amp;M." style="background:#F2F4F8;font-family:'IBM Plex Sans',sans-serif;color:#1F3A5F;padding:72px 100px 120px;display:flex;flex-direction:column;box-sizing:border-box">
+  <div style="font-size:24px;font-variant:small-caps;letter-spacing:0.16em;color:#B08D2E;font-weight:600">BLOOM Learning Lab</div>
+  <h2 style="margin:12px 0 40px;font-size:56px;font-weight:600;line-height:1.1">Step 3: build a scorecard entry</h2>
+  <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:8px 40px;display:grid;grid-template-columns:420px 1fr;font-size:28px;line-height:1.4">
+    <span style="padding:24px 0;border-bottom:1px solid #D9E1EC;color:#B08D2E;font-weight:600;font-size:24px;letter-spacing:0.04em;text-transform:uppercase">Priority area</span><span style="padding:24px 0;border-bottom:1px solid #D9E1EC;font-weight:600">Management &amp; Monitoring</span>
+    <span style="padding:24px 0;border-bottom:1px solid #D9E1EC;color:#B08D2E;font-weight:600;font-size:24px;letter-spacing:0.04em;text-transform:uppercase">Baseline</span><span style="padding:24px 0;border-bottom:1px solid #D9E1EC">2.67 / 4</span>
+    <span style="padding:24px 0;border-bottom:1px solid #D9E1EC;color:#B08D2E;font-weight:600;font-size:24px;letter-spacing:0.04em;text-transform:uppercase">Owner</span><span style="padding:24px 0;border-bottom:1px solid #D9E1EC">Principal / Heads of Department / Teachers</span>
+    <span style="padding:24px 0;border-bottom:1px solid #D9E1EC;color:#B08D2E;font-weight:600;font-size:24px;letter-spacing:0.04em;text-transform:uppercase">Key action</span><span style="padding:24px 0;border-bottom:1px solid #D9E1EC">Schedule regular leadership reviews of assessment results and progress</span>
+    <span style="padding:24px 0;border-bottom:1px solid #D9E1EC;color:#B08D2E;font-weight:600;font-size:24px;letter-spacing:0.04em;text-transform:uppercase">Evidence of implementation</span><span style="padding:24px 0;border-bottom:1px solid #D9E1EC">Meeting minutes, curriculum monitoring records, action plans</span>
+    <span style="padding:24px 0;color:#B08D2E;font-weight:600;font-size:24px;letter-spacing:0.04em;text-transform:uppercase">Evidence of impact</span><span style="padding:24px 0">Assessment decisions become traceable and revisited for impact</span>
+  </div>
+  <div style="background:#D9E1EC;border-radius:8px;padding:34px 40px;font-size:32px;line-height:1.45;margin-top:40px;text-wrap:pretty">The scorecard makes each action visible enough to review — not merely listed.</div>
+  <div style="position:absolute;left:100px;right:100px;bottom:44px;display:flex;justify-content:space-between;align-items:center"><span style="font-size:24px;color:#4A5B75">Using data to direct school improvement · BPLF-MC-DATA-01 v1.3</span><span style="width:48px;height:48px;background:#1F3A5F;color:#fff;font-size:24px;font-weight:600;display:flex;align-items:center;justify-content:center;border-radius:4px">09</span></div>
+</section>
+
+<section data-label="10 Step 4 hypothesis" data-speaker-notes="A hypothesis turns a finding into a testable leadership claim." style="background:#F2F4F8;font-family:'IBM Plex Sans',sans-serif;color:#1F3A5F;padding:72px 100px 120px;display:flex;flex-direction:column;box-sizing:border-box">
+  <div style="font-size:24px;font-variant:small-caps;letter-spacing:0.16em;color:#B08D2E;font-weight:600">BLOOM Learning Lab</div>
+  <h2 style="margin:12px 0 40px;font-size:56px;font-weight:600;line-height:1.1">Step 4: write the improvement hypothesis</h2>
+  <div style="display:flex;flex-direction:column;gap:20px;flex:1">
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:32px 40px;display:grid;grid-template-columns:260px 1fr;align-items:center;gap:32px"><span style="font-size:60px;font-weight:700;color:#B08D2E">IF</span><span style="font-size:30px;line-height:1.45;text-wrap:pretty">we schedule monthly assessment-review meetings and record decisions, owners and follow-up dates</span></div>
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:32px 40px;display:grid;grid-template-columns:260px 1fr;align-items:center;gap:32px"><span style="font-size:60px;font-weight:700;color:#B08D2E">THEN</span><span style="font-size:30px;line-height:1.45;text-wrap:pretty">by the Term 1 review at least 90% of agreed actions are completed and revisited, and assessment decisions become traceable</span></div>
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:32px 40px;display:grid;grid-template-columns:260px 1fr;align-items:center;gap:32px"><span style="font-size:60px;font-weight:700;color:#B08D2E">BECAUSE</span><span style="font-size:30px;line-height:1.45;text-wrap:pretty">decisions that are written, owned and revisited get done — undocumented decisions evaporate between meetings</span></div>
+    <div style="background:#D9E1EC;border-radius:8px;padding:28px 40px;font-size:28px;line-height:1.45;text-wrap:pretty;margin-top:auto">A hypothesis turns a data finding into a testable leadership claim. Next term, leaders ask: Did the action happen? Did it help? What should change?</div>
+  </div>
+  <div style="position:absolute;left:100px;right:100px;bottom:44px;display:flex;justify-content:space-between;align-items:center"><span style="font-size:24px;color:#4A5B75">Using data to direct school improvement · BPLF-MC-DATA-01 v1.3</span><span style="width:48px;height:48px;background:#1F3A5F;color:#fff;font-size:24px;font-weight:600;display:flex;align-items:center;justify-content:center;border-radius:4px">10</span></div>
+</section>
+
+<section data-label="11 Step 5 Evidence Triangle" data-speaker-notes="Three sources. Read the two-sources rule verbatim." style="background:#F2F4F8;font-family:'IBM Plex Sans',sans-serif;color:#1F3A5F;padding:72px 100px 120px;display:flex;flex-direction:column;box-sizing:border-box">
+  <div style="font-size:24px;font-variant:small-caps;letter-spacing:0.16em;color:#B08D2E;font-weight:600">BLOOM Learning Lab</div>
+  <h2 style="margin:12px 0 40px;font-size:56px;font-weight:600;line-height:1.1">Step 5: use the Evidence Triangle</h2>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:32px">
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <div style="background:#2F6FB3;color:#fff;border-radius:8px;padding:22px 32px;font-size:36px;font-weight:600;text-align:center">Voice</div>
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:28px 36px;display:flex;flex-direction:column;gap:12px;min-height:260px"><span style="font-size:22px;color:#B08D2E;font-weight:600;letter-spacing:0.06em;text-transform:uppercase">At School A</span><span style="font-size:26px;line-height:1.45;text-wrap:pretty">Teacher and student feedback on whether assessment feedback is useful and acted on.</span></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <div style="background:#2E8B57;color:#fff;border-radius:8px;padding:22px 32px;font-size:36px;font-weight:600;text-align:center">Artefact</div>
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:28px 36px;display:flex;flex-direction:column;gap:12px;min-height:260px"><span style="font-size:22px;color:#B08D2E;font-weight:600;letter-spacing:0.06em;text-transform:uppercase">At School A</span><span style="font-size:26px;line-height:1.45;text-wrap:pretty">Assessment-review minutes, intervention registers, rubrics, marked samples, action plans.</span></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <div style="background:#B08D2E;color:#fff;border-radius:8px;padding:22px 32px;font-size:36px;font-weight:600;text-align:center">Observation</div>
+      <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:28px 36px;display:flex;flex-direction:column;gap:12px;min-height:260px"><span style="font-size:22px;color:#B08D2E;font-weight:600;letter-spacing:0.06em;text-transform:uppercase">At School A</span><span style="font-size:26px;line-height:1.45;text-wrap:pretty">What leadership sees in classrooms, student work, review meetings and intervention sessions.</span></div>
+    </div>
+  </div>
+  <div style="background:#D9E1EC;border-radius:8px;padding:34px 40px;font-size:32px;line-height:1.45;margin-top:48px;text-wrap:pretty">At least two sources for any judgement; no Impacting claim without all three — Voice, Artefact and Observation.</div>
+  <div style="position:absolute;left:100px;right:100px;bottom:44px;display:flex;justify-content:space-between;align-items:center"><span style="font-size:24px;color:#4A5B75">Using data to direct school improvement · BPLF-MC-DATA-01 v1.3</span><span style="width:48px;height:48px;background:#1F3A5F;color:#fff;font-size:24px;font-weight:600;display:flex;align-items:center;justify-content:center;border-radius:4px">11</span></div>
+</section>
+
+<section data-label="12 Five pillars" data-speaker-notes="Balanced means five pillars. Unsurveyed pillars carry no score." style="background:#F2F4F8;font-family:'IBM Plex Sans',sans-serif;color:#1F3A5F;padding:72px 100px 120px;display:flex;flex-direction:column;box-sizing:border-box">
+  <div style="font-size:24px;font-variant:small-caps;letter-spacing:0.16em;color:#B08D2E;font-weight:600">BLOOM Learning Lab</div>
+  <h2 style="margin:12px 0 40px;font-size:56px;font-weight:600;line-height:1.1">Balanced means more than academic scores</h2>
+  <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:24px">
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:28px 30px;display:flex;flex-direction:column;gap:14px;min-height:340px"><span style="font-size:24px;color:#B08D2E;font-weight:600">P1</span><span style="font-size:30px;font-weight:600;line-height:1.2">Academic Excellence</span><span style="font-size:25px;line-height:1.45;color:#4A5B75">assessment, feedback, technical practice</span></div>
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:28px 30px;display:flex;flex-direction:column;gap:14px;min-height:340px"><span style="font-size:24px;color:#B08D2E;font-weight:600">P2</span><span style="font-size:30px;font-weight:600;line-height:1.2">Student Development &amp; Voice</span><span style="font-size:25px;line-height:1.45;color:#4A5B75">intervention, recognition</span></div>
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:28px 30px;display:flex;flex-direction:column;gap:14px;min-height:340px"><span style="font-size:24px;color:#B08D2E;font-weight:600">P3</span><span style="font-size:30px;font-weight:600;line-height:1.2">Teaching &amp; Leadership</span><span style="font-size:25px;line-height:1.45;color:#4A5B75">monitoring, shared practice</span></div>
+    <div style="background:#fff;border:1px dashed #B8C3D4;border-radius:8px;padding:28px 30px;display:flex;flex-direction:column;gap:14px;min-height:340px"><span style="font-size:24px;color:#B08D2E;font-weight:600">P4</span><span style="font-size:30px;font-weight:600;line-height:1.2">Community &amp; Stakeholders</span><span style="font-size:25px;line-height:1.45;color:#4A5B75;font-style:italic">not surveyed this cycle</span></div>
+    <div style="background:#fff;border:1px dashed #B8C3D4;border-radius:8px;padding:28px 30px;display:flex;flex-direction:column;gap:14px;min-height:340px"><span style="font-size:24px;color:#B08D2E;font-weight:600">P5</span><span style="font-size:30px;font-weight:600;line-height:1.2">Wellbeing &amp; Sustainability</span><span style="font-size:25px;line-height:1.45;color:#4A5B75;font-style:italic">awaiting evidence source</span></div>
+  </div>
+  <div style="background:#D9E1EC;border-radius:8px;padding:34px 40px;font-size:32px;line-height:1.45;margin-top:48px;text-wrap:pretty">A pillar with no evidence carries no score. Do not infer what the data did not measure.</div>
+  <div style="position:absolute;left:100px;right:100px;bottom:44px;display:flex;justify-content:space-between;align-items:center"><span style="font-size:24px;color:#4A5B75">Using data to direct school improvement · BPLF-MC-DATA-01 v1.3</span><span style="width:48px;height:48px;background:#1F3A5F;color:#fff;font-size:24px;font-weight:600;display:flex;align-items:center;justify-content:center;border-radius:4px">12</span></div>
+</section>
+
+<section data-label="13 Termly review cycle" data-speaker-notes="Movement is recorded term by term, against the same five questions." style="background:#F2F4F8;font-family:'IBM Plex Sans',sans-serif;color:#1F3A5F;padding:72px 100px 120px;display:flex;flex-direction:column;box-sizing:border-box">
+  <div style="font-size:24px;font-variant:small-caps;letter-spacing:0.16em;color:#B08D2E;font-weight:600">BLOOM Learning Lab</div>
+  <h2 style="margin:12px 0 40px;font-size:56px;font-weight:600;line-height:1.1">Termly review cycle: recording movement over time</h2>
+  <div style="display:grid;grid-template-columns:1fr 48px 1fr 48px 1fr 48px 1fr;align-items:stretch;gap:12px">
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:28px 32px;display:flex;flex-direction:column;gap:10px"><span style="font-size:32px;font-weight:600">Baseline</span><span style="font-size:24px;line-height:1.4;color:#4A5B75">survey score and priority</span></div>
+    <span style="font-size:40px;color:#B08D2E;display:flex;align-items:center;justify-content:center">→</span>
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:28px 32px;display:flex;flex-direction:column;gap:10px"><span style="font-size:32px;font-weight:600">Term 1</span><span style="font-size:24px;line-height:1.4;color:#4A5B75">implementation evidence</span></div>
+    <span style="font-size:40px;color:#B08D2E;display:flex;align-items:center;justify-content:center">→</span>
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:28px 32px;display:flex;flex-direction:column;gap:10px"><span style="font-size:32px;font-weight:600">Term 2</span><span style="font-size:24px;line-height:1.4;color:#4A5B75">movement and learning</span></div>
+    <span style="font-size:40px;color:#B08D2E;display:flex;align-items:center;justify-content:center">→</span>
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:28px 32px;display:flex;flex-direction:column;gap:10px"><span style="font-size:32px;font-weight:600">Term 3</span><span style="font-size:24px;line-height:1.4;color:#4A5B75">impact claim or revise</span></div>
+  </div>
+  <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:36px 40px;margin-top:48px;display:flex;flex-direction:column;gap:22px">
+    <div style="font-size:24px;color:#B08D2E;font-weight:600;letter-spacing:0.06em;text-transform:uppercase">Each termly review asks</div>
+    <ol style="margin:0;padding-left:40px;font-size:30px;line-height:1.5;display:flex;flex-direction:column;gap:8px">
+      <li>Did the planned action happen?</li>
+      <li>What evidence supports that it happened?</li>
+      <li>What changed for students, teachers or systems?</li>
+      <li>Was our improvement hypothesis validated?</li>
+      <li>What is the next adjustment?</li>
+    </ol>
+  </div>
+  <div style="position:absolute;left:100px;right:100px;bottom:44px;display:flex;justify-content:space-between;align-items:center"><span style="font-size:24px;color:#4A5B75">Using data to direct school improvement · BPLF-MC-DATA-01 v1.3</span><span style="width:48px;height:48px;background:#1F3A5F;color:#fff;font-size:24px;font-weight:600;display:flex;align-items:center;justify-content:center;border-radius:4px">13</span></div>
+</section>
+
+<section data-label="14 Worked illustration" data-speaker-notes="Illustrative only — School A has not yet had a review. The claim is only as strong as the warrant." style="background:#F2F4F8;font-family:'IBM Plex Sans',sans-serif;color:#1F3A5F;padding:72px 100px 120px;display:flex;flex-direction:column;box-sizing:border-box">
+  <div style="font-size:24px;font-variant:small-caps;letter-spacing:0.16em;color:#B08D2E;font-weight:600">BLOOM Learning Lab</div>
+  <h2 style="margin:12px 0 40px;font-size:56px;font-weight:600;line-height:1.1">Worked illustration: recording movement without exaggeration</h2>
+  <div style="display:grid;grid-template-columns:1.1fr 1fr;gap:40px;flex:1">
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:36px 48px;display:flex;flex-direction:column;justify-content:space-between">
+      <span style="font-size:24px;color:#B08D2E;font-weight:600;letter-spacing:0.06em;text-transform:uppercase">Illustrative trajectory · Management &amp; Monitoring</span>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:40px;align-items:end;height:380px">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:12px;height:100%;justify-content:flex-end"><span style="font-size:32px;font-weight:600">2.67</span><div style="width:100%;height:60%;background:#1F3A5F;border-radius:6px 6px 0 0"></div><span style="font-size:24px;color:#4A5B75">Baseline</span></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:12px;height:100%;justify-content:flex-end"><span style="font-size:32px;font-weight:600">2.80</span><div style="width:100%;height:65%;background:#D9E1EC;border:2px dashed #7F93AE;box-sizing:border-box;border-radius:6px 6px 0 0"></div><span style="font-size:24px;color:#4A5B75">Term 1</span></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:12px;height:100%;justify-content:flex-end"><span style="font-size:32px;font-weight:600">3.00</span><div style="width:100%;height:71%;background:#D9E1EC;border:2px dashed #7F93AE;box-sizing:border-box;border-radius:6px 6px 0 0"></div><span style="font-size:24px;color:#4A5B75">Term 2</span></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:12px;height:100%;justify-content:flex-end"><span style="font-size:32px;font-weight:600">3.15</span><div style="width:100%;height:76%;background:#D9E1EC;border:2px dashed #7F93AE;box-sizing:border-box;border-radius:6px 6px 0 0"></div><span style="font-size:24px;color:#4A5B75">Term 3</span></div>
+      </div>
+      <span style="font-size:24px;color:#4A5B75">Dashed bars are illustrative, not recorded.</span>
+    </div>
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:36px 40px;display:flex;flex-direction:column;gap:20px">
+      <div style="font-size:24px;color:#B08D2E;font-weight:600;letter-spacing:0.06em;text-transform:uppercase">Say this carefully</div>
+      <p style="margin:0;font-size:28px;line-height:1.5;text-wrap:pretty">This trajectory is illustrative — School A’s first review is Term 1, so no movement has yet been recorded.</p>
+      <p style="margin:0;font-size:28px;line-height:1.5;text-wrap:pretty">Movement from 2.67 to 3.15 would suggest progress, but the claim is only as strong as the Evidence Triangle and the warrant behind it.</p>
+    </div>
+  </div>
+  <div style="position:absolute;left:100px;right:100px;bottom:44px;display:flex;justify-content:space-between;align-items:center"><span style="font-size:24px;color:#4A5B75">Using data to direct school improvement · BPLF-MC-DATA-01 v1.3</span><span style="width:48px;height:48px;background:#1F3A5F;color:#fff;font-size:24px;font-weight:600;display:flex;align-items:center;justify-content:center;border-radius:4px">14</span></div>
+</section>
+
+<section data-label="15 Review questions" data-speaker-notes="Six questions for every termly review." style="background:#F2F4F8;font-family:'IBM Plex Sans',sans-serif;color:#1F3A5F;padding:72px 100px 120px;display:flex;flex-direction:column;box-sizing:border-box">
+  <div style="font-size:24px;font-variant:small-caps;letter-spacing:0.16em;color:#B08D2E;font-weight:600">BLOOM Learning Lab</div>
+  <h2 style="margin:12px 0 40px;font-size:56px;font-weight:600;line-height:1.1">The principal’s termly review questions</h2>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px">
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:32px 36px;display:flex;flex-direction:column;gap:16px;min-height:220px"><span style="font-size:40px;font-weight:700;color:#B08D2E">1</span><span style="font-size:30px;line-height:1.35;text-wrap:pretty">What did the data tell us?</span></div>
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:32px 36px;display:flex;flex-direction:column;gap:16px;min-height:220px"><span style="font-size:40px;font-weight:700;color:#B08D2E">2</span><span style="font-size:30px;line-height:1.35;text-wrap:pretty">What did we decide to prioritise?</span></div>
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:32px 36px;display:flex;flex-direction:column;gap:16px;min-height:220px"><span style="font-size:40px;font-weight:700;color:#B08D2E">3</span><span style="font-size:30px;line-height:1.35;text-wrap:pretty">Did the planned action happen?</span></div>
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:32px 36px;display:flex;flex-direction:column;gap:16px;min-height:220px"><span style="font-size:40px;font-weight:700;color:#B08D2E">4</span><span style="font-size:30px;line-height:1.35;text-wrap:pretty">What evidence warrants the current score?</span></div>
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:32px 36px;display:flex;flex-direction:column;gap:16px;min-height:220px"><span style="font-size:40px;font-weight:700;color:#B08D2E">5</span><span style="font-size:30px;line-height:1.35;text-wrap:pretty">What changed for learners or teacher practice?</span></div>
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:32px 36px;display:flex;flex-direction:column;gap:16px;min-height:220px"><span style="font-size:40px;font-weight:700;color:#B08D2E">6</span><span style="font-size:30px;line-height:1.35;text-wrap:pretty">What should we stop, continue, adapt or scale?</span></div>
+  </div>
+  <div style="background:#D9E1EC;border-radius:8px;padding:34px 40px;font-size:32px;line-height:1.45;margin-top:44px;text-wrap:pretty">The balanced scorecard is useful only if it changes leadership conversation.</div>
+  <div style="position:absolute;left:100px;right:100px;bottom:44px;display:flex;justify-content:space-between;align-items:center"><span style="font-size:24px;color:#4A5B75">Using data to direct school improvement · BPLF-MC-DATA-01 v1.3</span><span style="width:48px;height:48px;background:#1F3A5F;color:#fff;font-size:24px;font-weight:600;display:flex;align-items:center;justify-content:center;border-radius:4px">15</span></div>
+</section>
+
+<section data-label="16 Your task" data-speaker-notes="Five protected minutes, working alone. Every field must be completed." style="background:#F2F4F8;font-family:'IBM Plex Sans',sans-serif;color:#1F3A5F;padding:72px 100px 120px;display:flex;flex-direction:column;box-sizing:border-box">
+  <div style="font-size:24px;font-variant:small-caps;letter-spacing:0.16em;color:#B08D2E;font-weight:600">BLOOM Learning Lab</div>
+  <h2 style="margin:12px 0 36px;font-size:56px;font-weight:600;line-height:1.1">Your task: build one scorecard line — Intervention (2.83)</h2>
+  <div style="background:#D9E1EC;border-radius:8px;padding:26px 40px;display:flex;flex-direction:column;gap:8px">
+    <span style="font-size:24px;color:#B08D2E;font-weight:600;letter-spacing:0.06em;text-transform:uppercase">Your task · 5 protected minutes</span>
+    <span style="font-size:28px;line-height:1.4;text-wrap:pretty">Working alone, complete every field below for the given action: “Develop short-term intervention plans with clear targets.”</span>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:32px;flex:1">
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:28px 32px;display:flex;flex-direction:column;gap:12px"><span style="font-size:22px;color:#B08D2E;font-weight:600;letter-spacing:0.06em;text-transform:uppercase">Priority area</span><span style="font-size:25px;line-height:1.4;color:#4A5B75;text-wrap:pretty">Intervention — baseline 2.83. What is the improvement objective?</span></div>
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:28px 32px;display:flex;flex-direction:column;gap:12px"><span style="font-size:22px;color:#B08D2E;font-weight:600;letter-spacing:0.06em;text-transform:uppercase">Owner</span><span style="font-size:25px;line-height:1.4;color:#4A5B75;text-wrap:pretty">Who leads it in your school? Name the role and the review timeline.</span></div>
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:28px 32px;display:flex;flex-direction:column;gap:12px"><span style="font-size:22px;color:#B08D2E;font-weight:600;letter-spacing:0.06em;text-transform:uppercase">Evidence of implementation</span><span style="font-size:25px;line-height:1.4;color:#4A5B75;text-wrap:pretty">What artefacts would prove the plans exist and are monitored?</span></div>
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:28px 32px;display:flex;flex-direction:column;gap:12px"><span style="font-size:22px;color:#B08D2E;font-weight:600;letter-spacing:0.06em;text-transform:uppercase">Evidence of impact</span><span style="font-size:25px;line-height:1.4;color:#4A5B75;text-wrap:pretty">What outcome evidence and indicator would show students improved?</span></div>
+    <div style="grid-column:span 2;background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:28px 32px;display:flex;flex-direction:column;gap:12px"><span style="font-size:22px;color:#B08D2E;font-weight:600;letter-spacing:0.06em;text-transform:uppercase">Hypothesis</span><span style="font-size:25px;line-height:1.4;color:#4A5B75;text-wrap:pretty">Write your own: If we… then… [measurable, dated] … because…</span></div>
+  </div>
+  <div style="position:absolute;left:100px;right:100px;bottom:44px;display:flex;justify-content:space-between;align-items:center"><span style="font-size:24px;color:#4A5B75">Using data to direct school improvement · BPLF-MC-DATA-01 v1.3</span><span style="width:48px;height:48px;background:#1F3A5F;color:#fff;font-size:24px;font-weight:600;display:flex;align-items:center;justify-content:center;border-radius:4px">16</span></div>
+</section>
+
+<section data-label="17 Digital scorecard" data-speaker-notes="Five views. The discipline matters more than the tool." style="background:#F2F4F8;font-family:'IBM Plex Sans',sans-serif;color:#1F3A5F;padding:72px 100px 120px;display:flex;flex-direction:column;box-sizing:border-box">
+  <div style="font-size:24px;font-variant:small-caps;letter-spacing:0.16em;color:#B08D2E;font-weight:600">BLOOM Learning Lab</div>
+  <h2 style="margin:12px 0 40px;font-size:56px;font-weight:600;line-height:1.1">How the digital scorecard tells the improvement story</h2>
+  <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:24px">
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:28px 30px;display:flex;flex-direction:column;gap:14px;min-height:360px"><span style="font-size:30px;font-weight:600">Dashboard</span><span style="font-size:24px;line-height:1.45;color:#4A5B75;text-wrap:pretty">Where the school stands now: current mean, action progress, hypotheses written.</span></div>
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:28px 30px;display:flex;flex-direction:column;gap:14px;min-height:360px"><span style="font-size:30px;font-weight:600;line-height:1.2">Areas &amp; Actions</span><span style="font-size:24px;line-height:1.45;color:#4A5B75;text-wrap:pretty">Each area carries baseline, objective, actions, evidence, warrant and hypothesis.</span></div>
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:28px 30px;display:flex;flex-direction:column;gap:14px;min-height:360px"><span style="font-size:30px;font-weight:600">Termly Cycle</span><span style="font-size:24px;line-height:1.45;color:#4A5B75;text-wrap:pretty">Scores can be entered only when review is moderated and warranted.</span></div>
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:28px 30px;display:flex;flex-direction:column;gap:14px;min-height:360px"><span style="font-size:30px;font-weight:600">Report</span><span style="font-size:24px;line-height:1.45;color:#4A5B75;text-wrap:pretty">Generates a strengths-first leadership report for team review, print or PDF.</span></div>
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:28px 30px;display:flex;flex-direction:column;gap:14px;min-height:360px"><span style="font-size:30px;font-weight:600">Instrument</span><span style="font-size:24px;line-height:1.45;color:#4A5B75;text-wrap:pretty">Explains the scale, Evidence Triangle, hypotheses and scores firewall.</span></div>
+  </div>
+  <div style="background:#D9E1EC;border-radius:8px;padding:34px 40px;font-size:32px;line-height:1.45;margin-top:48px;text-wrap:pretty">The technology matters less than the leadership discipline it creates.</div>
+  <div style="position:absolute;left:100px;right:100px;bottom:44px;display:flex;justify-content:space-between;align-items:center"><span style="font-size:24px;color:#4A5B75">Using data to direct school improvement · BPLF-MC-DATA-01 v1.3</span><span style="width:48px;height:48px;background:#1F3A5F;color:#fff;font-size:24px;font-weight:600;display:flex;align-items:center;justify-content:center;border-radius:4px">17</span></div>
+</section>
+
+<section data-label="18 Ethical use" data-speaker-notes="Coaching, not surveillance. Read the anti-gaming line verbatim." style="background:#F2F4F8;font-family:'IBM Plex Sans',sans-serif;color:#1F3A5F;padding:72px 100px 120px;display:flex;flex-direction:column;box-sizing:border-box">
+  <div style="font-size:24px;font-variant:small-caps;letter-spacing:0.16em;color:#B08D2E;font-weight:600">BLOOM Learning Lab</div>
+  <h2 style="margin:12px 0 40px;font-size:56px;font-weight:600;line-height:1.1">Ethical use: the scorecard is for coaching, not surveillance</h2>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:32px;flex:1;align-content:start">
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:36px 40px;display:flex;flex-direction:column;gap:18px"><span style="font-size:24px;color:#B08D2E;font-weight:600;letter-spacing:0.06em;text-transform:uppercase">Scores firewall</span><span style="font-size:27px;line-height:1.5;text-wrap:pretty">Scores are held by the school, used for coaching, never published in league form. The worked example is anonymised as “School A”; the school is named only with its written consent.</span></div>
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:36px 40px;display:flex;flex-direction:column;gap:18px"><span style="font-size:24px;color:#B08D2E;font-weight:600;letter-spacing:0.06em;text-transform:uppercase">Do no harm</span><span style="font-size:27px;line-height:1.5;text-wrap:pretty">A score is a starting point, never a target. The goal is not to raise the score but to improve practice and outcomes — scores move only when evidence warrants movement.</span></div>
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:36px 40px;display:flex;flex-direction:column;gap:18px"><span style="font-size:24px;color:#B08D2E;font-weight:600;letter-spacing:0.06em;text-transform:uppercase">Leadership discipline</span><span style="font-size:27px;line-height:1.5;text-wrap:pretty">Use data to ask better questions, protect strengths, focus support and review progress — not to generate fear.</span></div>
+  </div>
+  <div style="position:absolute;left:100px;right:100px;bottom:44px;display:flex;justify-content:space-between;align-items:center"><span style="font-size:24px;color:#4A5B75">Using data to direct school improvement · BPLF-MC-DATA-01 v1.3</span><span style="width:48px;height:48px;background:#1F3A5F;color:#fff;font-size:24px;font-weight:600;display:flex;align-items:center;justify-content:center;border-radius:4px">18</span></div>
+</section>
+
+<section data-label="19 Capstone" data-speaker-notes="One area, one hypothesis, one warrant. Commit in writing." style="background:#F2F4F8;font-family:'IBM Plex Sans',sans-serif;color:#1F3A5F;padding:72px 100px 120px;display:flex;flex-direction:column;box-sizing:border-box">
+  <div style="font-size:24px;font-variant:small-caps;letter-spacing:0.16em;color:#B08D2E;font-weight:600">BLOOM Learning Lab</div>
+  <h2 style="margin:12px 0 40px;font-size:56px;font-weight:600;line-height:1.1">Capstone: your 30-day leadership action</h2>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px">
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:32px 36px;display:flex;flex-direction:column;gap:14px"><span style="font-size:32px;font-weight:600">Choose one</span><span style="font-size:26px;line-height:1.45;color:#4A5B75;text-wrap:pretty">Select one survey area where improvement would unlock wider school progress.</span></div>
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:32px 36px;display:flex;flex-direction:column;gap:14px"><span style="font-size:32px;font-weight:600">Write one</span><span style="font-size:26px;line-height:1.45;color:#4A5B75;text-wrap:pretty">Draft one improvement hypothesis: if we… then… because…</span></div>
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:32px 36px;display:flex;flex-direction:column;gap:14px"><span style="font-size:32px;font-weight:600">Track one</span><span style="font-size:26px;line-height:1.45;color:#4A5B75;text-wrap:pretty">Agree one warrant and two evidence sources before the termly review.</span></div>
+  </div>
+  <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:36px 40px;margin-top:32px;display:flex;flex-direction:column;gap:16px">
+    <span style="font-size:24px;color:#B08D2E;font-weight:600;letter-spacing:0.06em;text-transform:uppercase">My 30-day commitment</span>
+    <p style="margin:0;font-size:34px;line-height:1.6">I will use the scorecard to focus on <span style="display:inline-block;width:420px;border-bottom:2px solid #1F3A5F;vertical-align:baseline"> </span> because <span style="display:inline-block;width:420px;border-bottom:2px solid #1F3A5F;vertical-align:baseline"> </span>.</p>
+  </div>
+  <div style="background:#D9E1EC;border-radius:8px;padding:28px 40px;font-size:26px;line-height:1.45;margin-top:32px;text-wrap:pretty"><strong>Required output:</strong> one completed scorecard line — priority, baseline, objective, action, owner, implementation evidence, impact evidence, hypothesis, review date.</div>
+  <div style="position:absolute;left:100px;right:100px;bottom:44px;display:flex;justify-content:space-between;align-items:center"><span style="font-size:24px;color:#4A5B75">Using data to direct school improvement · BPLF-MC-DATA-01 v1.3</span><span style="width:48px;height:48px;background:#1F3A5F;color:#fff;font-size:24px;font-weight:600;display:flex;align-items:center;justify-content:center;border-radius:4px">19</span></div>
+</section>
+
+<section data-label="20 Knowledge check" data-speaker-notes="Four questions. Toggle the answer strip off via Tweaks while participants answer." style="background:#F2F4F8;font-family:'IBM Plex Sans',sans-serif;color:#1F3A5F;padding:72px 100px 120px;display:flex;flex-direction:column;box-sizing:border-box">
+  <div style="font-size:24px;font-variant:small-caps;letter-spacing:0.16em;color:#B08D2E;font-weight:600">BLOOM Learning Lab</div>
+  <h2 style="margin:12px 0 40px;font-size:56px;font-weight:600;line-height:1.1">Knowledge check</h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px">
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:32px 40px;display:flex;flex-direction:column;gap:14px;min-height:200px"><span style="font-size:24px;color:#B08D2E;font-weight:600">Q1</span><span style="font-size:30px;line-height:1.4;text-wrap:pretty">Which survey area has the lowest baseline score at School A?</span></div>
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:32px 40px;display:flex;flex-direction:column;gap:14px;min-height:200px"><span style="font-size:24px;color:#B08D2E;font-weight:600">Q2</span><span style="font-size:30px;line-height:1.4;text-wrap:pretty">What is the purpose of a warrant?</span></div>
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:32px 40px;display:flex;flex-direction:column;gap:14px;min-height:200px"><span style="font-size:24px;color:#B08D2E;font-weight:600">Q3</span><span style="font-size:30px;line-height:1.4;text-wrap:pretty">Which three sources form the Evidence Triangle?</span></div>
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:32px 40px;display:flex;flex-direction:column;gap:14px;min-height:200px"><span style="font-size:24px;color:#B08D2E;font-weight:600">Q4</span><span style="font-size:30px;line-height:1.4;text-wrap:pretty">What is the difference between implementation evidence and impact evidence?</span></div>
+  </div>
+  <sc-if value="{{ showAnswers }}" hint-placeholder-val="{{ true }}">
+  <div style="background:#D9E1EC;border-radius:8px;padding:28px 40px;font-size:25px;line-height:1.5;margin-top:40px;text-wrap:pretty"><strong>Answers:</strong> 1 Management &amp; Monitoring, 2.67 · 2 It turns a score from opinion into evidence · 3 Voice, Artefact, Observation · 4 Implementation shows it happened; impact shows it made a difference.</div>
+  </sc-if>
+  <div style="position:absolute;left:100px;right:100px;bottom:44px;display:flex;justify-content:space-between;align-items:center"><span style="font-size:24px;color:#4A5B75">Using data to direct school improvement · BPLF-MC-DATA-01 v1.3</span><span style="width:48px;height:48px;background:#1F3A5F;color:#fff;font-size:24px;font-weight:600;display:flex;align-items:center;justify-content:center;border-radius:4px">20</span></div>
+</section>
+
+<section data-label="21 Completion" data-speaker-notes="Completion evidence and the 45-minute team session. Close on the pathway." style="background:#F2F4F8;font-family:'IBM Plex Sans',sans-serif;color:#1F3A5F;padding:72px 100px 120px;display:flex;flex-direction:column;box-sizing:border-box">
+  <div style="font-size:24px;font-variant:small-caps;letter-spacing:0.16em;color:#B08D2E;font-weight:600">BLOOM Learning Lab</div>
+  <h2 style="margin:12px 0 40px;font-size:56px;font-weight:600;line-height:1.1">Completion and next steps</h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px">
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:32px 40px;display:flex;flex-direction:column;gap:18px">
+      <div style="font-size:24px;color:#B08D2E;font-weight:600;letter-spacing:0.06em;text-transform:uppercase">Completion evidence</div>
+      <ul style="margin:0;padding-left:34px;font-size:28px;line-height:1.5;display:flex;flex-direction:column;gap:8px">
+        <li>Complete the 30-minute learning activity</li>
+        <li>Submit one scorecard line or hypothesis</li>
+        <li>Complete the short knowledge check</li>
+        <li>Name one next leadership review action</li>
+      </ul>
+    </div>
+    <div style="background:#fff;border:1px solid #D9E1EC;border-radius:8px;padding:32px 40px;display:flex;flex-direction:column;gap:18px">
+      <div style="font-size:24px;color:#B08D2E;font-weight:600;letter-spacing:0.06em;text-transform:uppercase">Next step for schools</div>
+      <p style="margin:0;font-size:28px;line-height:1.45;text-wrap:pretty">Run a 45-minute leadership team session using your own current data:</p>
+      <ol style="margin:0;padding-left:34px;font-size:28px;line-height:1.5;display:flex;flex-direction:column;gap:4px">
+        <li>Name strengths</li>
+        <li>Select priority</li>
+        <li>Write hypothesis</li>
+        <li>Agree evidence</li>
+        <li>Set review date</li>
+      </ol>
+    </div>
+  </div>
+  <div style="background:#1F3A5F;color:#fff;border-radius:8px;padding:36px 40px;margin-top:40px;display:flex;flex-direction:column;gap:14px">
+    <span style="font-size:34px;font-weight:600;line-height:1.3">Use data to direct improvement — not to decorate reports.</span>
+    <span style="font-size:26px;color:#D9E1EC">Assessment Survey → Action Plan → Balanced Scorecard → Termly Review</span>
+  </div>
+  <div style="position:absolute;left:100px;right:100px;bottom:44px;display:flex;justify-content:space-between;align-items:center"><span style="font-size:24px;color:#4A5B75">Using data to direct school improvement · BPLF-MC-DATA-01 v1.3</span><span style="width:48px;height:48px;background:#1F3A5F;color:#fff;font-size:24px;font-weight:600;display:flex;align-items:center;justify-content:center;border-radius:4px">21</span></div>
+</section>
+
+</x-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showAnswers&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Knowledge check&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    return { showAnswers: this.props.showAnswers ?? true };
+  }
+}
+</script>
+</body>
+</html>
